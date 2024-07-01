@@ -1,0 +1,40 @@
+---
+title: Expense Tracker
+description: A utility for tracking where each expense goes.
+published: true
+date: "2024-04-21"
+repository: danyshs
+
+---
+
+# Expense Tracker
+
+`"tag.py" excluded, as it contains PIIs.`
+
+### Tag.py logic:
+```ts
+df['Tag'] = ['Coffee'  if  'coffee'  in  x  or  'tim hortons' in  x  else....
+#[Enough of these to manually match each spending source]
+#[Automation used to assist with this process of tagging`
+#but as precision was key, the final script had manual tags]
+else 'Unlabelled' for x in df['Description'].str.lower()]
+return df
+```
+## expenseTracker.py:
+```ts
+import  pandas  as  pd
+from  tag  import  tag_descriptions
+
+file_path  =  r'.\cibc_processed.csv'
+column_names  = ['Date', 'Description', 'Spent', 'Received']
+df  =  pd.read_csv(file_path, names=column_names)
+df['Date'] =  pd.to_datetime(df['Date'], dayfirst=True)
+df  =  tag_descriptions(df)
+grouped_df  =  df.groupby('Tag')[['Spent', 'Received']].sum()
+total_sums  =  df[['Spent', 'Received']].sum()
+total_sums_df  =  pd.DataFrame([total_sums])
+grouped_df  =  pd.concat([grouped_df, total_sums_df])
+grouped_df  =  grouped_df.rename(index={grouped_df.index[-1]: 'Total'})
+print(grouped_df)
+
+```
