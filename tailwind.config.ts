@@ -67,7 +67,7 @@ const config: Config = {
         600: "#004899",
         700: "#0064BB",
         800: "#0080DD",
-        900: "#00AAFF",
+        900: "#22BBFF",
       },
       purple: {
         special: "#FFFFFF",
