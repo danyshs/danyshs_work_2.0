@@ -31,3 +31,65 @@ body {
     text-wrap: balance;
   }
 }
+
+@font-face {
+  font-family: "fourbnt";
+  src: url("/font/fourbnt.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "computer_pixel-7";
+  src: url("/font/computer_pixel-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "CUBE";
+  src: url("/font/CUBE.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Kingdom_Hearts_Font";
+  src: url("/font/Kingdom_Hearts_Font.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "outline_pixel-7";
+  src: url("/font/outline_pixel-7.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "outline_pixel-7_solid";
+  src: url("/font/outline_pixel-7_solid.ttf") format("truetype");
+}
+// ############################
+
+@font-face {
+  font-family: "SPAIDER_";
+  src: url("/font/SPAIDER_.TTF") format("truetype");
+}
+
+// ############################
+@font-face {
+  font-family: "cd_icons";
+  src: url("/icon/CD-IconsPC.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "minecraft";
+  src: url("/icon/craft.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PixArrows";
+  src: url("/icon/PixArrows.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "pixel_icons_compilation";
+  src: url("/icon/pixel_icons_compilation.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SPAIDERS";
+  src: url("/icon/SPAIDERS.TTF") format("truetype");
+}

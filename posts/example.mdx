@@ -1,0 +1,33 @@
+---
+title: Example MDX Page
+description: This is a sample MDX file to demonstrate MDX capabilities
+date: "2024-07-05"
+---
+
+# Welcome to My Example MDX Page
+
+This is a paragraph of regular text. MDX allows you to write Markdown with JSX mixed in.
+
+## Features of MDX
+
+1. **Markdown Support**: You can use all standard Markdown features.
+2. _Inline JSX_: You can include React components directly in your content.
+3. `Code snippets`: Easily include code snippets with syntax highlighting.
+
+### Here's a sample React component
+
+You can import and use React components in your MDX files. Here's a simple example:
+
+```jsx
+import { useState } from "react";
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
+}
+```
