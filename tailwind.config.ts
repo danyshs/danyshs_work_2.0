@@ -14,6 +14,10 @@ const config: Config = {
         kh_pic: "url('/img/og.png')",
         surprise: "url('/img/surprise.ico')",
         surprise2: "url('/img/surprise2.png')",
+        surprise3: "url('/img/surprise3.png')",
+        surprise4: "url('/img/surprise4.png')",
+        surprise5: "url('/img/surprise5.png')",
+        surprise6: "url('/img/surprise6.png')",
 
         lol_github: "url('/img/lol_github.ico')",
         lol2_github: "url('/img/lol2_github.ico')",
