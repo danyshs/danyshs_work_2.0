@@ -33,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ title }) => {
   const TitleText = () => {
     const text = "Data Scientist\nAspiring Game Developer";
     return (
-      <blockquote className="text-lg md:text-xl text-white/80 select-none animate-bounce sm font-outlinepx italic sm:text-left text-center relative sm:text-lg lg:text-2xl xl:text-4xl z-10 text-slate-900 break-inside-avoid-column max-h-2">
+      <blockquote className="text-lg md:text-3xl text-white/80 select-none animate-bounce sm font-outlinepx italic sm:text-left text-center relative z-10 text-slate-900 break-inside-avoid-column max-h-2">
         {text.split("").map((char, index) => {
           if (char === "D" || char === "S" || char === "d" || char === "s") {
             return (

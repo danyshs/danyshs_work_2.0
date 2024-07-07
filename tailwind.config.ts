@@ -13,6 +13,7 @@ const config: Config = {
         my_pic: "url('/img/me.jpg')",
         kh_pic: "url('/img/og.png')",
         surprise: "url('/img/surprise.ico')",
+        surprise2: "url('/img/surprise2.png')",
 
         lol_github: "url('/img/lol_github.ico')",
         lol2_github: "url('/img/lol2_github.ico')",

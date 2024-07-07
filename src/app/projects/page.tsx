@@ -140,7 +140,7 @@ const my_sections: Section[] = [
       },
       {
         href: "./projects/gmail_sorting",
-        imgsrc: "bg-surprise",
+        imgsrc: "bg-surprise2",
         hoverimgsrc: "group-hover:bg-cyan-800 duration-500 bg-contain",
         alt: "gmail_sorting",
       },
