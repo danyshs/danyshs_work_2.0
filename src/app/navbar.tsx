@@ -1,37 +1,19 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
-import { Howl } from "howler";
-import { my_contacts, Card } from "./contactsData";
+import { Card, my_contacts } from "./contactsData";
+import preloadImages from "../../util/preloadImages";
+import DanyshS from "../components/DanyshS";
+import TitleText from "../components/TitleText";
+import { playSound, charSoundMap } from "../../util/soundUtils";
 
-// Function to preload images
-const preloadImages = (imageUrls: string[]) => {
-  imageUrls.forEach((url) => {
-    const img = new Image();
-    img.src = url;
-  });
-};
-
-const soundMap: Record<string, Howl> = {
-  G5: new Howl({ src: ["/sounds/G5.mp3"] }),
-  F5: new Howl({ src: ["/sounds/F5.mp3"] }),
-  C6: new Howl({ src: ["/sounds/C6.mp3"] }),
-  D6: new Howl({ src: ["/sounds/D6.mp3"] }),
-  Eb6: new Howl({ src: ["/sounds/Eb6.mp3"] }),
-  F6: new Howl({ src: ["/sounds/F6.mp3"] }),
-  Bb5: new Howl({ src: ["/sounds/Bb5.mp3"] }),
-  G6: new Howl({ src: ["/sounds/G6.mp3"] }),
-};
-
-const charSoundMap: Record<string, string> = {
-  D: "D6",
-  a: "F5",
-  n: "C6",
-  y: "G5",
-  s: "Eb6",
-  h: "Bb5",
-  _: "F6",
-  S: "G6",
+const contacts_list = (contacts: Card[]): React.ReactNode[] => {
+  return contacts.map((cont: Card, index: number) => (
+    <a key={index} href={cont.href}>
+      <div
+        className={`ring-6 ring-blue-800/50 ${cont.imgsrc} ${cont.hoverimgsrc} md:w-16 md:h-16 w-12 h-12 mt-2 hover:scale-120 hover:ring-6 transition duration-300 bg-cover`}
+      ></div>
+    </a>
+  ));
 };
 
 const Navbar: React.FC = () => {
@@ -49,7 +31,7 @@ const Navbar: React.FC = () => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const char = event.key;
       if (charSoundMap[char]) {
-        playSound(char);
+        playSound(char, setActiveChar);
       }
     };
 
@@ -59,78 +41,19 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
-  const playSound = (char: string) => {
-    setActiveChar(char);
-    soundMap[charSoundMap[char]].play();
-    setTimeout(() => setActiveChar(null), 500); // Reset after 500ms
-  };
-
-  const DanyshS = () => {
-    const text = "Danysh_S";
-    return (
-      <div className="text-nowrap break-inside-avoid-column select-none font-comp_pixel relative z-10 md:text-6xl text-3xl text-cyan-900 flex items-center">
-        <div
-          className={`rounded-full ring-3 ring-blue-900/20 bg-my_pic relative z-10 hover:bg-kh_pic hover:bg-center hover:bg-contain w-10 h-10 md:w-20 md:h-20 bg-contain bg-center bg-no-repeat hover:ring-6 transition duration-300 hover:bg-no-repeat mr-2`}
-        ></div>
-        {text.split("").map((char, index) => (
-          <span
-            key={index}
-            className={`transition duration-900 ${
-              activeChar === char ? "text-purple-900 scale-125" : ""
-            } hover:text-purple-900 hover:scale-125`}
-            onClick={() => playSound(char)}
-          >
-            {char}
-          </span>
-        ))}
-      </div>
-    );
-  };
-
-  const TitleText = () => {
-    const text = "Developer\nAvid Videogame Enthusiast";
-    return (
-      <blockquote className="text-lg md:text-3xl text-white/80 select-none animate-bounce sm font-outlinepx italic text-center relative z-10 text-slate-900 break-inside-avoid-column max-h-2 md:mb-5">
-        {text.split("").map((char, index) => {
-          if (char === "D" || char === "S" || char === "d" || char === "s") {
-            return (
-              <span
-                key={index}
-                className={`hover:text-cyan-900 transition duration-300 ${
-                  activeChar === char ? "text-yellow-500" : ""
-                } hover:text-purple-800 hover:scale-110`}
-                onClick={() => playSound(char)}
-              >
-                {char}
-              </span>
-            );
-          } else if (char === "\n") {
-            return <br key={index} />;
-          } else {
-            return char;
-          }
-        })}
-      </blockquote>
-    );
-  };
-
-  const contacts_list = (contacts: Card[]): React.ReactNode[] => {
-    return contacts.map((cont: Card, index: number) => (
-      <a key={index} href={cont.href}>
-        <div
-          className={`ring-6 ring-blue-800/50 ${cont.imgsrc} ${cont.hoverimgsrc} md:w-16 md:h-16 w-12 h-12 mt-2 hover:scale-120 hover:ring-6 transition duration-300 bg-cover`}
-        ></div>
-      </a>
-    ));
-  };
-
   return (
     <div className="relative w-full preload-hover-images">
       <div className="absolute inset-0 bg-blue-400/50 h-full"></div>
       <div className="pt-2 w-full bg-gradient-to-b from-blue-300/75 to-blue-700 rounded-t-full space-x-2 relative flex flex-col md:items-center md:justify-between items-center z-10">
         <div className="flex flex-col items-center md:space-x-3">
-          <DanyshS />
-          <TitleText />
+          <DanyshS
+            activeChar={activeChar}
+            playSound={(char: string) => playSound(char, setActiveChar)}
+          />
+          <TitleText
+            activeChar={activeChar}
+            playSound={(char: string) => playSound(char, setActiveChar)}
+          />
         </div>
         <div className="flex mt-12 items-center justify-center space-x-5 z-10 md:space-x-10">
           {contacts_list(my_contacts)}
