@@ -44,8 +44,8 @@ const Navbar: React.FC = () => {
   return (
     <div className="relative w-full preload-hover-images">
       <div className="absolute inset-0 bg-blue-400/50 h-full"></div>
-      <div className="pt-2 w-full bg-gradient-to-b from-blue-300/75 to-blue-700 rounded-t-full space-x-2 relative flex flex-col md:items-center md:justify-between items-center z-10">
-        <div className="flex flex-col items-center md:space-x-3">
+      <div className="pt-2 w-full bg-gradient-to-b from-blue-300/75 to-blue-700 md:rounded-t-full border-2 border-black space-x-2 relative flex flex-col md:items-center md:justify-between items-center z-10">
+        <div className="flex flex-col-reverse md:gap-y-0 gap-y-12 -mb-12 md:mb-0 md:flex-col items-center md:space-x-3">
           <DanyshS
             activeChar={activeChar}
             playSound={(char: string) => playSound(char, setActiveChar)}

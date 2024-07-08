@@ -4,6 +4,7 @@ import React from "react";
 import Navbar from "./navbar";
 import MyBG from "./myBG";
 import { my_sections, Card } from "./projectData";
+import BlogSection from "../components/blog";
 
 export default function Home() {
   const additionalCard: Card = {
@@ -20,56 +21,12 @@ export default function Home() {
 
   return (
     <MyBG>
-      <div className="flex flex-wrap justify-center flex-col flex-grow-0 items-center">
+      <div className="flex flex-col items-center">
         <Navbar />
-        <div className="md:border-8 border-double border-black space-y-4 p-4 border max-w-4xl w-full">
+        <div className="md:border-8 border-double border-black space-y-2 px-4 py-2 max-w-4xl w-full">
+          <BlogSection />
           <div className="text-4xl text-center text-cyan-900 font-outlinepx bg-black w-full p-2">
-            Hi! I'm Danysh
-          </div>
-          <div className="w-full flex justify-center">
-            <div className="bg-gradient-to-b from-black/25 to-black/75 w-full max-w-4xl px-6 md:px-16 break-words">
-              <div className="text-3xl md:text-4xl text-white font-comp_pixel">
-                <div className="text-white font-comp_pixel">
-                  I make things that I feel can help everyone make their lives a
-                  little bit easier.
-                  <br /> Whether it's:
-                </div>
-                <div className="pl-3">
-                  * a
-                  <a href="https://www.github.com/danyshs/gmail_sorting">
-                    <span className="text-green-900"> utility </span>
-                  </a>
-                  to automatically categorize and sort their email
-                  <br />* a
-                  <a href="https://www.github.com/danyshs//powerShell_Utilities">
-                    <span className="text-green-900">
-                      {" "}
-                      bunch of powershell scripts{" "}
-                    </span>
-                  </a>
-                  like a tree printer, screen rotator, or more convenient ways
-                  to reduce friction in one's workflow
-                  <br />* a
-                  <a href="https://www.github.com/danyshs//PSWeave_Gemini">
-                    <span className="text-green-900">
-                      {" "}
-                      version of Fabric AI that uses Gemini instead
-                    </span>
-                  </a>
-                  , so that those without the paid subscription of ChatGPT are
-                  able to scan YouTube videos, transcribe audio files, etc.
-                  <br />
-                  <a href="https://www.github.com/danyshs/PSWeave_Gemini">
-                    <span className="text-green-900">
-                      [Currently in Progress]
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="text-4xl text-center text-cyan-900 font-outlinepx bg-black w-full p-2">
-            Projects
+            Some Projects
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-4">
             {projects_list(filteredProjects)}
