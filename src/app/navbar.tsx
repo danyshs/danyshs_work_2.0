@@ -60,6 +60,9 @@ const Navbar: React.FC = () => {
         </div>
         <div className="w-full mt-2 bg-blue-transparent backdrop-blur-2xl mb-2"></div>
       </div>
+      <div className="w-full h-2 bg-blue-800"></div>
+      <div className="w-full h-1 bg-blue-600/50"></div>
+      <div className="w-full h-0.5 bg-blue-400/50"></div>
     </div>
   );
 };
