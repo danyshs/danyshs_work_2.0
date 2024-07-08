@@ -20,7 +20,7 @@ export default function Home() {
 function sections_list(sections: Section[]): React.ReactNode[] {
   return sections.map((section, index) => (
     <div key={index} className="">
-      <h2 className="text-4xl text-center text-cyan-900 font-outlinepx bg-black mb-4">
+      <h2 className="text-3xl md:text-4xl text-center text-cyan-900 font-outlinepx bg-black mb-4">
         {section.title}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -42,7 +42,7 @@ function projects_list(projects: Card[]): React.ReactNode[] {
           className={`bg-no-repeat block bg-center min-h-24 w-full ${proj.imgsrc} ${proj.hoverimgsrc}`}
         ></div>
         {proj.alt && (
-          <div className="w-full text-center text-xl text-cyan-900 font-outlinepx_solid p-1 bg-purple-400 break-words">
+          <div className="w-full text-center text-lg text-green-700 font-outlinepx_solid p-1 bg-black break-words">
             {proj.alt}
           </div>
         )}
