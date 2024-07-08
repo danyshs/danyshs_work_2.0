@@ -11,7 +11,7 @@ const TitleText = ({
 }) => {
   const text = "Developer\nAvid Videogame Enthusiast";
   return (
-    <blockquote className="text-lg md:text-3xl text-white/80 select-none animate-bounce sm font-outlinepx italic text-center relative z-10 text-slate-900 break-inside-avoid-column max-h-2 md:mb-5">
+    <blockquote className="text-xl md:text-4xl text-white/80 select-none animate-bounce sm font-outlinepx italic text-center relative z-10 text-slate-900 break-inside-avoid-column max-h-2 md:mb-5">
       {text.split("").map((char, index) => {
         if (char === "D" || char === "S" || char === "d" || char === "s") {
           return (

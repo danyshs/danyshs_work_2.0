@@ -42,7 +42,7 @@ function projects_list(projects: Card[]): React.ReactNode[] {
           className={`bg-no-repeat block bg-center min-h-24 w-full ${proj.imgsrc} ${proj.hoverimgsrc}`}
         ></div>
         {proj.alt && (
-          <div className="w-full text-center text-lg text-green-700 font-outlinepx_solid p-1 bg-black break-words">
+          <div className="w-full text-center text-xl text-black font-outlinepx_solid p-1 bg-white/40 break-words">
             {proj.alt}
           </div>
         )}
