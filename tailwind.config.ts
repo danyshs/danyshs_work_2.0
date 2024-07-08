@@ -57,16 +57,6 @@ const config: Config = {
         spider: ["SPAIDER_"],
         spider_symbols: ["SPAIDERS"],
       },
-      /*soundFiles: {
-        D: "url('/sounds/Bb5.ogg')",
-        a: "url('/sounds/C5.ogg')",
-        n: "url('/sounds/D5.ogg')",
-        y: "url('/sounds/Eb5.ogg')",
-        s: "url('/sounds/F5.ogg')",
-        h: "url('/sounds/G5.ogg')",
-        space: "url('/sounds/F6.ogg')",
-        S: "url('/sounds/G6.ogg')",
-      },*/
     },
     colors: {
       transparent: "transparent",

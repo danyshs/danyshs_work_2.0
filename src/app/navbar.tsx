@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Howl } from "howler";
 import { my_contacts, Card } from "./contactsData";
 
 // Function to preload images
@@ -11,7 +12,31 @@ const preloadImages = (imageUrls: string[]) => {
   });
 };
 
+const soundMap: Record<string, Howl> = {
+  G5: new Howl({ src: ["/sounds/G5.mp3"] }),
+  F5: new Howl({ src: ["/sounds/F5.mp3"] }),
+  C6: new Howl({ src: ["/sounds/C6.mp3"] }),
+  D6: new Howl({ src: ["/sounds/D6.mp3"] }),
+  Eb6: new Howl({ src: ["/sounds/Eb6.mp3"] }),
+  F6: new Howl({ src: ["/sounds/F6.mp3"] }),
+  Bb5: new Howl({ src: ["/sounds/Bb5.mp3"] }),
+  G6: new Howl({ src: ["/sounds/G6.mp3"] }),
+};
+
+const charSoundMap: Record<string, string> = {
+  D: "D6",
+  a: "F5",
+  n: "C6",
+  y: "G5",
+  s: "Eb6",
+  h: "F6",
+  _: "Bb5",
+  S: "G6",
+};
+
 const Navbar: React.FC = () => {
+  const [activeChar, setActiveChar] = useState<string | null>(null);
+
   useEffect(() => {
     preloadImages([
       "/img/lol2_gmail.webp",
@@ -20,10 +45,28 @@ const Navbar: React.FC = () => {
       "/img/lol2_twitterx.webp",
       "/img/lol2_youtube.webp",
     ]);
+
+    const handleKeyPress = (event: KeyboardEvent) => {
+      const char = event.key;
+      if (charSoundMap[char]) {
+        playSound(char);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
   }, []);
 
+  const playSound = (char: string) => {
+    setActiveChar(char);
+    soundMap[charSoundMap[char]].play();
+    setTimeout(() => setActiveChar(null), 500); // Reset after 500ms
+  };
+
   const DanyshS = () => {
-    const text = "Danysh S";
+    const text = "Danysh_S";
     return (
       <div className="text-nowrap break-inside-avoid-column select-none font-comp_pixel relative z-10 md:text-6xl text-3xl text-cyan-900 flex items-center">
         <div
@@ -32,7 +75,10 @@ const Navbar: React.FC = () => {
         {text.split("").map((char, index) => (
           <span
             key={index}
-            className="hover:text-purple-800 transition hover:scale-110 duration-300"
+            className={`transition duration-900 ${
+              activeChar === char ? "text-purple-900 scale-125" : ""
+            } hover:text-purple-900 hover:scale-125`}
+            onClick={() => playSound(char)}
           >
             {char}
           </span>
@@ -50,7 +96,10 @@ const Navbar: React.FC = () => {
             return (
               <span
                 key={index}
-                className="hover:text-cyan-900 transition duration-300"
+                className={`hover:text-cyan-900 transition duration-300 ${
+                  activeChar === char ? "text-yellow-500" : ""
+                } hover:text-purple-800 hover:scale-110`}
+                onClick={() => playSound(char)}
               >
                 {char}
               </span>
