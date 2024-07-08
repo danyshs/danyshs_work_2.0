@@ -1,7 +1,27 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { my_contacts, Card } from "./contactsData";
 
+// Function to preload images
+const preloadImages = (imageUrls: string[]) => {
+  imageUrls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
+};
+
 const Navbar: React.FC = () => {
+  useEffect(() => {
+    preloadImages([
+      "/img/lol2_gmail.webp",
+      "/img/lol2_github.webp",
+      "/img/lol2_linkedin.webp",
+      "/img/lol2_twitterx.webp",
+      "/img/lol2_youtube.webp",
+    ]);
+  }, []);
+
   const DanyshS = () => {
     const text = "Danysh S";
     return (
@@ -22,9 +42,9 @@ const Navbar: React.FC = () => {
   };
 
   const TitleText = () => {
-    const text = "Data Scientist\nAspiring Game Developer";
+    const text = "Developer\nAvid Videogame Enthusiast";
     return (
-      <blockquote className="text-lg md:text-3xl text-white/80 select-none animate-bounce sm font-outlinepx italic text-center relative z-10 text-slate-900  break-inside-avoid-column max-h-2 md:mb-5">
+      <blockquote className="text-lg md:text-3xl text-white/80 select-none animate-bounce sm font-outlinepx italic text-center relative z-10 text-slate-900 break-inside-avoid-column max-h-2 md:mb-5">
         {text.split("").map((char, index) => {
           if (char === "D" || char === "S" || char === "d" || char === "s") {
             return (
@@ -56,7 +76,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full preload-hover-images">
       <div className="absolute inset-0 bg-blue-400/50 h-full"></div>
       <div className="pt-2 w-full bg-gradient-to-b from-blue-300/75 to-blue-700 rounded-t-full space-x-2 relative flex flex-col md:items-center md:justify-between items-center z-10">
         <div className="flex flex-col items-center md:space-x-3">

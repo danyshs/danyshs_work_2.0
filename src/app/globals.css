@@ -93,3 +93,27 @@ body {
   font-family: "SPAIDERS";
   src: url("/icon/SPAIDERS.TTF") format("truetype");
 }
+
+/* Add this to your global CSS file, e.g., globals.css */
+.preload-hover-images::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  background-image: url("/img/lol2_gmail.webp"), url("/img/lol2_github.webp"),
+    url("/img/lol2_linkedin.webp"), url("/img/lol2_twitterx.webp"),
+    url("/img/lol2_youtube.webp");
+  background-repeat: no-repeat;
+}
+
+/*
+url("/img/surprise.webp") no-repeat, url("/img/surprise2.webp") no-repeat,
+    url("/img/surprise3.webp") no-repeat, url("/img/surprise4.webp") no-repeat,
+    url("/img/surprise5.webp") no-repeat, url("/img/surprise6.webp") no-repeat,
+    url("/img/lol_gmail.webp") no-repeat, url("/img/lol_github.webp") no-repeat,
+    url("/img/lol_linkedin.webp") no-repeat,
+    url("/img/lol_twitterx.webp") no-repeat,
+    url("/img/lol_youtube.webp") no-repeat,
+    url("/img/deep_fried_more.webp") no-repeat;
+*/

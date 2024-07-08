@@ -19,20 +19,20 @@ export const my_sections: Section[] = [
     projects: [
       {
         href: "./projects/expense_tracker_util",
-        imgsrc: "bg-surprise5",
+        imgsrc: "bg-surprise",
         hoverimgsrc: "group-hover:bg-black duration-500 bg-contain",
         alt: "expense_tracker_util",
         main: false,
       },
       {
         href: "./projects/gmail_sorting",
-        imgsrc: "bg-surprise6",
+        imgsrc: "bg-surprise",
         hoverimgsrc: "group-hover:bg-black duration-500 bg-contain",
         alt: "gmail_sorting",
       },
       {
         href: "./projects/gmail_sorting",
-        imgsrc: "bg-surprise3",
+        imgsrc: "bg-surprise",
         hoverimgsrc: "group-hover:bg-black duration-500 bg-contain",
         alt: "gmail_sorting",
         main: true,

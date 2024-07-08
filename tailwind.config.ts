@@ -10,31 +10,31 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        my_pic: "url('/img/me.jpg')",
-        kh_pic: "url('/img/og.png')",
-        surprise: "url('/img/surprise.ico')",
-        surprise2: "url('/img/surprise2.png')",
-        surprise3: "url('/img/surprise3.png')",
-        surprise4: "url('/img/surprise4.png')",
-        surprise5: "url('/img/surprise5.png')",
-        surprise6: "url('/img/surprise6.png')",
+        my_pic: "url('/img/me.webp')",
+        kh_pic: "url('/img/og.webp')",
+        surprise: "url('/img/surprise.webp')",
+        surprise2: "url('/img/surprise2.webp')",
+        surprise3: "url('/img/surprise3.webp')",
+        surprise4: "url('/img/surprise4.webp')",
+        surprise5: "url('/img/surprise5.webp')",
+        surprise6: "url('/img/surprise6.webp')",
 
-        lol_github: "url('/img/lol_github.ico')",
-        lol2_github: "url('/img/lol2_github.ico')",
+        lol_github: "url('/img/lol_github.webp')",
+        lol2_github: "url('/img/lol2_github.webp')",
 
-        lol_gmail: "url('/img/lol_gmail.ico')",
-        lol2_gmail: "url('/img/lol2_gmail.ico')",
+        lol_gmail: "url('/img/lol_gmail.webp')",
+        lol2_gmail: "url('/img/lol2_gmail.webp')",
 
-        lol_linkedin: "url('/img/lol_linkedin.ico')",
-        lol2_linkedin: "url('/img/lol2_linkedin.ico')",
+        lol_linkedin: "url('/img/lol_linkedin.webp')",
+        lol2_linkedin: "url('/img/lol2_linkedin.webp')",
 
-        lol_twitterx: "url('/img/lol_twitterx.ico')",
-        lol2_twitterx: "url('/img/lol2_twitterx.ico')",
+        lol_twitterx: "url('/img/lol_twitterx.webp')",
+        lol2_twitterx: "url('/img/lol2_twitterx.webp')",
 
-        lol_youtube: "url('/img/lol_youtube.ico')",
-        lol2_youtube: "url('/img/lol2_youtube.ico')",
+        lol_youtube: "url('/img/lol_youtube.webp')",
+        lol2_youtube: "url('/img/lol2_youtube.webp')",
 
-        more_fried: "url('/img/deep_fried_more.png')",
+        more_fried: "url('/img/deep_fried_more.webp')",
 
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

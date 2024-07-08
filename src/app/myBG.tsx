@@ -1,3 +1,5 @@
+// ./src/app/myBG.tsx
+
 import Particles from "../components/particles";
 
 const MyBG = ({ children }: { children: React.ReactNode }) => {

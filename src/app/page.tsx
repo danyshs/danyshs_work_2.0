@@ -22,15 +22,16 @@ export default function Home() {
     <MyBG>
       <div className="flex flex-col items-center">
         <Navbar />
-
-        <div className="grid space-y-4 py-4 items-center justify-center">
-          <div className="flex justify-center mb-4">
-            <div className="text-4xl text-center text-cyan-900 font-outlinepx bg-black w-full max-w-2xl p-2">
-              Projects
+        <div className="space-y-4 py-4">
+          <div className="text-4xl col-span-2 text-center text-cyan-900 font-outlinepx bg-black w-full p-2">
+            Projects
+          </div>
+          <div className="">
+            {projects_list(filteredProjects)}
+            <div className="col-span-2">
+              {project_card(additionalCard, true)}
             </div>
           </div>
-          {projects_list(filteredProjects)}
-          {project_card(additionalCard, true)}
         </div>
       </div>
     </MyBG>
