@@ -29,8 +29,8 @@ const charSoundMap: Record<string, string> = {
   n: "C6",
   y: "G5",
   s: "Eb6",
-  h: "F6",
-  _: "Bb5",
+  h: "Bb5",
+  _: "F6",
   S: "G6",
 };
 
