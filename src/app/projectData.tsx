@@ -5,6 +5,7 @@ export interface Card {
   imgsrc: string;
   hoverimgsrc: string;
   alt?: string;
+  altdesc?: string;
   main?: boolean;
 }
 
@@ -19,29 +20,20 @@ export const my_sections: Section[] = [
     projects: [
       {
         href: "./projects/expense_tracker_util",
-        imgsrc: "bg-surprise",
+        imgsrc: "bg-expense_tracker",
         hoverimgsrc: "group-hover:bg-black duration-500 bg-contain",
         alt: "expense_tracker_util",
-        main: false,
-      },
-      {
-        href: "./projects/gmail_sorting",
-        imgsrc: "bg-surprise",
-        hoverimgsrc: "group-hover:bg-black duration-500 bg-contain",
-        alt: "gmail_sorting",
-      },
-      {
-        href: "./projects/gmail_sorting",
-        imgsrc: "bg-surprise",
-        hoverimgsrc: "group-hover:bg-black duration-500 bg-contain",
-        alt: "gmail_sorting",
+        altdesc:
+          "Reads the expenses and presents it in a nice way that is very nice to look at and lorem placeholder placeholder text",
         main: true,
       },
       {
         href: "./projects/gmail_sorting",
-        imgsrc: "bg-surprise",
-        hoverimgsrc: "group-hover:bg-black duration-500 bg-contain",
+        imgsrc: "bg-gmail_sorting bg-black",
+        hoverimgsrc: "group-hover:bg-black/50 duration-500 bg-contain",
         alt: "gmail_sorting",
+        altdesc:
+          "Scans through every unique email address, allows you to tag them and categorize them into folders",
         main: true,
       },
     ],
@@ -54,18 +46,21 @@ export const my_sections: Section[] = [
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
         alt: "try_web_gl",
-        main: true,
+        altdesc: "placeholder",
+        main: false,
       },
       {
-        href: "./projects/danyshs_work",
-        imgsrc: "bg-kh_pic",
+        href: "./projects",
+        imgsrc: "bg-danyshs_work",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "danyshs_work",
+        altdesc: "Recursion?",
+        main: false,
       },
       // Add more projects here...
     ],
   },
-  {
+  /*{
     title: "Videos",
     projects: [
       {
@@ -80,9 +75,9 @@ export const my_sections: Section[] = [
         imgsrc: "bg-my_pic",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "also example",
-        main: true,
+        main: false,
       },
       // Add more projects here...
     ],
-  },
+  },*/
 ];

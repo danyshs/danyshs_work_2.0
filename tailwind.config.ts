@@ -36,6 +36,9 @@ const config: Config = {
 
         more_fried: "url('/img/deep_fried_more.webp')",
 
+        gmail_sorting: "url('/img/gmail-sorting.webp')",
+        expense_tracker: "url('/img/expense_tracker.webp')",
+        danyshs_work: "url('/img/danyshs_work.webp')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

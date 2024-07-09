@@ -34,7 +34,11 @@ export default async function PostPage({
     notFound();
   }
   try {
-    const { content } = await compileMDX({
+    const { content, frontmatter } = await compileMDX<{
+      title: string;
+      description: string;
+      github: string;
+    }>({
       source: markdown,
       options: { parseFrontmatter: true },
     });
@@ -44,17 +48,16 @@ export default async function PostPage({
         <div className="bg-gray-900 min-h-screen text-white">
           <div className="bg-black py-8">
             <div className="container mx-auto px-4 text-center">
-              <h1 className="text-5xl font-cube">Gmail Sorting</h1>
-              <p className="text-xl mt-4">
-                A utility to sort, tag, categorize, and generate filters on
-                GMail
-              </p>
-              <a
-                href="https://github.com/danyshs/gmail_sorting"
-                className="bg-white text-black font-bold py-2 px-4 rounded mt-6 inline-block"
-              >
-                GitHub →
-              </a>
+              <h1 className="text-5xl font-cube">{frontmatter.title}</h1>
+              <p className="text-xl mt-4">{frontmatter.description}</p>
+              {frontmatter.github && (
+                <a
+                  href={frontmatter.github}
+                  className="bg-white text-black font-bold py-2 px-4 rounded mt-6 inline-block"
+                >
+                  GitHub →
+                </a>
+              )}
             </div>
           </div>
           <article className="prose prose-lg bg-white text-gray-800 p-8 max-w-3xl mx-auto mt-16">
