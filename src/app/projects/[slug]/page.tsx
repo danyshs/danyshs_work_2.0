@@ -37,7 +37,7 @@ export default async function PostPage({
     const { content, frontmatter } = await compileMDX<{
       title: string;
       description: string;
-      github: string;
+      repository: string;
     }>({
       source: markdown,
       options: { parseFrontmatter: true },
@@ -50,18 +50,36 @@ export default async function PostPage({
             <div className="container mx-auto px-4 text-center">
               <h1 className="text-5xl font-cube">{frontmatter.title}</h1>
               <p className="text-xl mt-4">{frontmatter.description}</p>
-              {frontmatter.github && (
-                <a
-                  href={frontmatter.github}
-                  className="bg-white text-black font-bold py-2 px-4 rounded mt-6 inline-block"
-                >
-                  GitHub →
-                </a>
+              {frontmatter.repository && (
+                <div className="flex justify-center items-center mt-6">
+                  <a
+                    href="./"
+                    className="text-3xl md:text-6xl font-pixarrows text-cyan-900 cursor-pointer mr"
+                  >
+                    a
+                  </a>
+                  <a
+                    href={`https://www.github.com/${frontmatter.repository}`}
+                    className="bg-white text-black font-bold py-2 px-4 rounded inline-block"
+                  >
+                    GitHub →
+                  </a>
+                </div>
               )}
             </div>
           </div>
           <article className="prose prose-lg bg-white text-gray-800 p-8 max-w-3xl mx-auto mt-16">
             {content}
+            {frontmatter.repository && (
+              <div className="mt-8 text-center">
+                <a
+                  href={`https://www.github.com/${frontmatter.repository}`}
+                  className="bg-gray-900 text-white font-bold py-2 px-4 rounded inline-block"
+                >
+                  GitHub →
+                </a>
+              </div>
+            )}
           </article>
         </div>
       </MyBG>

@@ -36,7 +36,7 @@ const DanyshS = ({
           a
         </span>
       )}
-      <div className="rounded-full ring-3 ring-blue-900/20 bg-my_pic relative z-10 hover:bg-my_pic hover:brightness-125 hover:bg-center hover:bg-contain w-16 h-16 md:w-20 md:h-20 bg-contain bg-center bg-no-repeat hover:ring-6 transition duration-300 mr-2"></div>
+      <div className="rounded-full ring-3 ring-blue-900/20 bg-my_pic relative z-10 hover:bg-my_pic hover:bright hover:bg-center hover:bg-contain w-16 h-16 md:w-20 md:h-20 bg-contain bg-center bg-no-repeat hover:ring-6 transition duration-300 mr-2"></div>
       {text.split("").map((char, index) => (
         <span
           key={index}

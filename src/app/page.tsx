@@ -7,7 +7,6 @@ import MyBG from "./myBG";
 import { my_sections, Card } from "./projectData";
 import BlogSection from "../components/blog";
 
-// Dynamically import HeightAdjuster only on the client side
 const HeightAdjuster = dynamic(() => import("../components/HeightAdjuster"), {
   ssr: false,
 });
