@@ -23,7 +23,7 @@ const BlogSection: React.FC = () => {
               </a>
               to automatically categorize and sort their email
               <br />* a
-              <a href="https://www.github.com/danyshs//powerShell_Utilities">
+              <a href="https://www.github.com/danyshs/powerShell_Utilities">
                 <span className="text-green-900">
                   {" "}
                   bunch of powershell scripts{" "}
@@ -32,10 +32,10 @@ const BlogSection: React.FC = () => {
               like a tree printer, screen rotator, or more convenient ways to
               reduce friction in one's workflow
               <br />* a
-              <a href="https://www.github.com/danyshs//PSWeave_Gemini">
+              <a href="https://www.github.com/danyshs/PSWeave_Gemini">
                 <span className="text-green-900">
                   {" "}
-                  version of Fabric AI that uses Gemini instead
+                  version of Fabric AI that uses Gemini instead (Currently Private)
                 </span>
               </a>
               , so that those without the paid subscription of ChatGPT are able
