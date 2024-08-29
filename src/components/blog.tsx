@@ -32,15 +32,25 @@ const BlogSection: React.FC = () => {
               like a tree printer, screen rotator, or more convenient ways to
               reduce friction in one's workflow
               <br />* a
-              <a href="https://www.github.com/danyshs/PSWeave_Gemini">
+              <a href="">
                 <span className="text-green-900">
                   {" "}
-                  version of Fabric AI that uses Gemini instead (Currently Private)
+                  Local LLM AI RAG using a &lt;4B Model
                 </span>
               </a>
-              , so that those without the paid subscription of ChatGPT are able
-              to scan YouTube videos, transcribe audio files, etc.
+              for saving time when reading lengthy documentation in PDFs
               <br />
+              <br />* My current ongoing project:
+              <a href="">
+                <span className="text-green-900">
+                  {" "}
+                  "My Zettelkasten"
+                </span>
+              </a>
+              which is a heavier Local LLM that Vectorizes my entire Obsidian notes directory and answers all my questions, showing me exactly which excerpt is being used as reference.
+              <br />
+
+
             </div>
           </div>
         </div>
