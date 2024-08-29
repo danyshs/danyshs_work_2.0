@@ -46,7 +46,7 @@ const BlogSection: React.FC = () => {
                   "My Zettelkasten"
                 </span>
               </a>
-              which is a heavier Local LLM that Vectorizes my entire Obsidian notes directory and answers all my questions, showing me exactly which excerpt is being used as reference.
+              , which is a heavier Local LLM that Vectorizes my entire Obsidian notes directory and answers all my questions, showing me exactly which excerpt is being used as reference.
               <br />
 
 
