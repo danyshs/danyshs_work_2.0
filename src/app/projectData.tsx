@@ -20,8 +20,8 @@ export const my_sections: Section[] = [
     projects: [
       {
         href: "./projects/expense_tracker_util",
-        imgsrc: "bg-expense_tracker",
-        hoverimgsrc: "group-hover:bg-black duration-500 bg-contain",
+        imgsrc: "bg-expense_tracker bg-black",
+        hoverimgsrc: "group-hover:bg-black/50 duration-500 bg-contain",
         alt: "expense_tracker_util",
         altdesc:
           "Reads the expenses and presents it in a nice way that is very nice to look at and lorem placeholder placeholder text",
