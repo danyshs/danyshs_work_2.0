@@ -38,10 +38,10 @@ const BlogSection: React.FC = () => {
               </span>
               {" "}
               for saving time when reading lengthy documentation in PDFs
-              <br />* My current ongoing project:
+              <br />*
               <span className="text-green-900">
                 {" "}
-                "My Zettelkasten"
+                My current ongoing project: "My Zettelkasten"
               </span>
               , which is a heavier Local LLM chatbot that Vectorizes my Obsidian notes directory for efficient data retrieval, showing exactly which excerpt is referenced.
               <br />
