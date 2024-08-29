@@ -36,7 +36,8 @@ const BlogSection: React.FC = () => {
                 {" "}
                 Local LLM AI RAG using a &lt;4B Model
               </span>
-              {" "}for saving time when reading lengthy documentation in PDFs
+              {" "}
+              for saving time when reading lengthy documentation in PDFs
               <br />* My current ongoing project:
               <span className="text-green-900">
                 {" "}
