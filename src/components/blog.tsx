@@ -32,20 +32,16 @@ const BlogSection: React.FC = () => {
               like a tree printer, screen rotator, or more convenient ways to
               reduce friction in one's workflow
               <br />* a
-              <a href="">
-                <span className="text-green-900">
-                  {" "}
-                  Local LLM AI RAG using a &lt;4B Model
-                </span>
-              </a>
-              for saving time when reading lengthy documentation in PDFs
+              <span className="text-green-900">
+                {" "}
+                Local LLM AI RAG using a &lt;4B Model
+              </span>
+              {" "}for saving time when reading lengthy documentation in PDFs
               <br />* My current ongoing project:
-              <a href="">
-                <span className="text-green-900">
-                  {" "}
-                  "My Zettelkasten"
-                </span>
-              </a>
+              <span className="text-green-900">
+                {" "}
+                "My Zettelkasten"
+              </span>
               , which is a heavier Local LLM that Vectorizes my entire Obsidian notes directory and answers all my questions, showing me exactly which excerpt is being used as reference.
               <br />
 
