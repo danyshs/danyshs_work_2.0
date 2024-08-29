@@ -39,7 +39,6 @@ const BlogSection: React.FC = () => {
                 </span>
               </a>
               for saving time when reading lengthy documentation in PDFs
-              <br />
               <br />* My current ongoing project:
               <a href="">
                 <span className="text-green-900">
