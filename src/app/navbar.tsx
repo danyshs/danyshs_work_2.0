@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Card, my_contacts } from "./contactsData";
-import preloadImages from "../../util/preloadImages";
+import preloadImages from "../utils/preloadImages";
 import DanyshS from "../components/DanyshS";
 import TitleText from "../components/TitleText";
-import { playSound, charSoundMap } from "../../util/soundUtils";
+import { playSound, charSoundMap } from "../utils/soundUtils";
 
 const contacts_list = (contacts: Card[]): React.ReactNode[] => {
   return contacts.map((cont: Card, index: number) => (

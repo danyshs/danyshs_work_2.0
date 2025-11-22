@@ -4,8 +4,8 @@ const config: Config = {
   content: [
     // ✅ Added 'posts' and 'util' so Tailwind scans them too
     "./posts/**/*.{js,ts,jsx,tsx,mdx}",
-    "./util/**/*.{js,ts,jsx,tsx,mdx}",
-    
+    "./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
+
     // ✅ Existing src paths
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -94,18 +94,18 @@ const config: Config = {
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        fourbnt: ["fourbnt"],
-        comp_pixel: ["computer_pixel-7"],
-        cube: ["CUBE"],
-        khfont: ["Kingdom_Hearts_Font"],
-        outlinepx: ["outline_pixel-7"],
-        outlinepx_solid: ["outline_pixel-7_solid"],
-        cdicons: ["cd_icons"],
-        minecraft: ["minecraft"],
-        pixarrows: ["PixArrows"],
-        pixicons: ["pixel_icons_compilation"],
-        spider: ["SPAIDER_"],
-        spider_symbols: ["SPAIDERS"],
+        fourbnt: ["var(--font-fourbnt)"],
+        comp_pixel: ["var(--font-computer-pixel-7)"],
+        cube: ["var(--font-cube)"],
+        khfont: ["var(--font-kingdom-hearts)"],
+        outlinepx: ["var(--font-outline-pixel-7)"],
+        outlinepx_solid: ["var(--font-outline-pixel-7-solid)"],
+        cdicons: ["var(--font-cd-icons)"],
+        minecraft: ["var(--font-minecraft)"],
+        pixarrows: ["var(--font-pixarrows)"],
+        pixicons: ["var(--font-pixel-icons-compilation)"],
+        spider: ["var(--font-spaider)"],
+        spider_symbols: ["var(--font-spaiders)"],
       },
     },
   },

@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useCallback
 } from "react";
-import { useMousePosition } from "../../util/mouse";
+import { useMousePosition } from "../utils/mouse";
 
 interface ParticlesProps {
   className?: string;
