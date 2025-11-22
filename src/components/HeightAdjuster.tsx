@@ -1,6 +1,8 @@
 // ../components/HeightAdjuster.tsx
-
 "use client";
+
+import dynamic from "next/dynamic";
+
 import React, { useEffect } from "react";
 
 const HeightAdjuster: React.FC = () => {

@@ -33,12 +33,12 @@ const BlogSection: React.FC = () => {
               I make the things I want to see in this world. One day, that&apos;ll be games. Planning on applying to a PhD program once feasible.
               <br/>
               I dream of a world where we use Generative AI in an ethical and sustainable way.
-              <br/> Here&apos;s my contribution towards it so far:
+              <br/>  <span className="text-green-700"> Here&apos;s my contribution towards it so far: </span>
             </div>
             <div className="pl-3">
-              * My
+              *
               <a href="https://gist.github.com/danyshs/5477a1468e8810b6e703ee03f20400f2#file-rag_neorg_note_processor-md">
-                <span className="text-green-900"> Neorg RAG Note processor </span>
+                <span className="text-green-900"> ZettelMancer </span>
               </a>
               that can either serve as a second brain / memory bank. A chatbot made out of your personal wiki that can be communicated with through any device that can support a browser
               <br />* a
@@ -50,19 +50,6 @@ const BlogSection: React.FC = () => {
               </a>
               like a tree printer, screen rotator, or more convenient ways to
               reduce friction in one&apos;s workflow
-              <br />* a
-              <span className="text-green-900">
-                {" "}
-                Local LLM AI RAG using a &lt;4B Model
-              </span>
-              {" "}
-              for saving time when reading lengthy documentation in PDFs
-              <br />*
-              <span className="text-green-900">
-                {" "}
-                My current ongoing project: &quot;My Zettelkasten&quot;
-              </span>
-              , which is a heavier Local LLM chatbot that Vectorizes my Obsidian notes directory for efficient data retrieval, showing exactly which excerpt is referenced.
               <br />
             </div>
           </div>

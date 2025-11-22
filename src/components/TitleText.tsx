@@ -15,9 +15,8 @@ const TitleText = ({
           return (
             <span
               key={index}
-              className={`transition duration-500 ${
-                activeChar === char ? "text-cyan-900" : ""
-              } hover:text-cyan-900 hover:scale-110`}
+              className={`transition duration-75 ${activeChar === char ? "text-cyan-900" : ""
+                } hover:text-cyan-900 hover:scale-110`}
               onClick={() => playSound(char)}
             >
               {char}

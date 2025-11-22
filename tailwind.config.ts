@@ -2,13 +2,71 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
+    // ✅ Added 'posts' and 'util' so Tailwind scans them too
+    "./posts/**/*.{js,ts,jsx,tsx,mdx}",
+    "./util/**/*.{js,ts,jsx,tsx,mdx}",
+    
+    // ✅ Existing src paths
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./public/**/*.html",
   ],
   theme: {
     extend: {
+      // ✅ colors moved INSIDE extend. 
+      // Now you keep default colors AND get your custom ones.
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        white: "#ffffff",
+        black: "#000000",
+        blue: {
+          100: "#000011",
+          200: "#000022",
+          300: "#000033",
+          400: "#000055",
+          500: "#000077",
+          600: "#000099",
+          700: "#0000BB",
+          800: "#0000DD",
+          900: "#0000FF",
+        },
+        green: {
+          100: "#001100",
+          200: "#002200",
+          300: "#003300",
+          400: "#005500",
+          500: "#007700",
+          600: "#009900",
+          700: "#00BB00",
+          800: "#00DD00",
+          900: "#00FF00",
+        },
+        cyan: {
+          100: "#000611",
+          200: "#001122",
+          300: "#001733",
+          400: "#002855",
+          500: "#003877",
+          600: "#004899",
+          700: "#0064BB",
+          800: "#0080DD",
+          900: "#22BBFF",
+        },
+        purple: {
+          special: "#FFFFFF",
+          100: "#060011",
+          200: "#110022",
+          300: "#170033",
+          350: "#200044",
+          400: "#280055",
+          500: "#380077",
+          600: "#480099",
+          700: "#6400BB",
+          800: "#8000DD",
+          900: "#AA00FF",
+        },
+      },
       backgroundImage: {
         my_pic: "url('/img/me.webp')",
         kh_pic: "url('/img/og.webp')",
@@ -18,99 +76,36 @@ const config: Config = {
         surprise4: "url('/img/surprise4.webp')",
         surprise5: "url('/img/surprise5.webp')",
         surprise6: "url('/img/surprise6.webp')",
-
         lol_github: "url('/img/lol_github.webp')",
         lol2_github: "url('/img/lol2_github.webp')",
-
         lol_gmail: "url('/img/lol_gmail.webp')",
         lol2_gmail: "url('/img/lol2_gmail.webp')",
-
         lol_linkedin: "url('/img/lol_linkedin.webp')",
         lol2_linkedin: "url('/img/lol2_linkedin.webp')",
-
         lol_twitterx: "url('/img/lol_twitterx.webp')",
         lol2_twitterx: "url('/img/lol2_twitterx.webp')",
-
         lol_youtube: "url('/img/lol_youtube.webp')",
         lol2_youtube: "url('/img/lol2_youtube.webp')",
-
         more_fried: "url('/img/deep_fried_more.webp')",
-
         gmail_sorting: "url('/img/gmail-sorting.webp')",
         expense_tracker: "url('/img/expense_tracker.webp')",
         danyshs_work: "url('/img/danyshs_work.webp')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        //FONTS
         fourbnt: ["fourbnt"],
         comp_pixel: ["computer_pixel-7"],
         cube: ["CUBE"],
         khfont: ["Kingdom_Hearts_Font"],
         outlinepx: ["outline_pixel-7"],
         outlinepx_solid: ["outline_pixel-7_solid"],
-
-        //ICONS
         cdicons: ["cd_icons"],
         minecraft: ["minecraft"],
         pixarrows: ["PixArrows"],
         pixicons: ["pixel_icons_compilation"],
         spider: ["SPAIDER_"],
         spider_symbols: ["SPAIDERS"],
-      },
-    },
-    colors: {
-      transparent: "transparent",
-      current: "currentColor",
-      white: "#ffffff",
-      black: "#000000",
-      blue: {
-        100: "#000011",
-        200: "#000022",
-        300: "#000033",
-        400: "#000055",
-        500: "#000077",
-        600: "#000099",
-        700: "#0000BB",
-        800: "#0000DD",
-        900: "#0000FF",
-      },
-      green: {
-        100: "#001100",
-        200: "#002200",
-        300: "#003300",
-        400: "#005500",
-        500: "#007700",
-        600: "#009900",
-        700: "#00BB00",
-        800: "#00DD00",
-        900: "#00FF00",
-      },
-      cyan: {
-        100: "#000611",
-        200: "#001122",
-        300: "#001733",
-        400: "#002855",
-        500: "#003877",
-        600: "#004899",
-        700: "#0064BB",
-        800: "#0080DD",
-        900: "#22BBFF",
-      },
-      purple: {
-        special: "#FFFFFF",
-        100: "#060011",
-        200: "#110022",
-        300: "#170033",
-        350: "#200044",
-        400: "#280055",
-        500: "#380077",
-        600: "#480099",
-        700: "#6400BB",
-        800: "#8000DD",
-        900: "#AA00FF",
       },
     },
   },

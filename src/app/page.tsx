@@ -6,10 +6,7 @@ import Navbar from "./navbar";
 import MyBG from "./myBG";
 import { my_sections, Card } from "./projectData";
 import BlogSection from "../components/blog";
-
-const HeightAdjuster = dynamic(() => import("../components/HeightAdjuster"), {
-  ssr: false,
-});
+import HeightAdjusterWrapper from "../components/HeightAdjusterWrapper";
 
 export default function Home() {
   const additionalCard: Card = {
@@ -41,7 +38,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <HeightAdjuster />
+      <HeightAdjusterWrapper />
     </MyBG>
   );
 }

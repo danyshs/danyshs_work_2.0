@@ -40,7 +40,7 @@ const DanyshS = ({
       {text.split("").map((char, index) => (
         <span
           key={index}
-          className={`transition duration-900 ${getHighlightClass(
+          className={`transition duration-75 ${getHighlightClass(
             char
           )} hover:text-purple-900 hover:scale-125`}
           onClick={() => playSound(char)}

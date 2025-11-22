@@ -10,7 +10,7 @@ const contacts_list = (contacts: Card[]): React.ReactNode[] => {
   return contacts.map((cont: Card, index: number) => (
     <a key={index} href={cont.href}>
       <div
-        className={`ring-6 ring-blue-800/50 ${cont.imgsrc} ${cont.hoverimgsrc} md:w-16 md:h-16 w-12 h-12 mt-2 hover:scale-120 hover:ring-6 transition duration-300 bg-cover`}
+        className={`ring-6 ring-blue-800/50 ${cont.imgsrc} ${cont.hoverimgsrc} md:w-16 md:h-16 w-12 h-12 mt-2 hover:scale-125 hover:ring-6 transition duration-75 bg-cover`}
       ></div>
     </a>
   ));

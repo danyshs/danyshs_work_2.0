@@ -3,12 +3,8 @@ import MyBG from "../myBG";
 import { my_sections, Card, Section } from "../projectData";
 import dynamic from "next/dynamic";
 
-// Dynamically import HeightAdjuster only on the client side
 const HeightAdjuster = dynamic(
   () => import("../../components/HeightAdjuster"),
-  {
-    ssr: false,
-  }
 );
 
 export default function AllProjects() {

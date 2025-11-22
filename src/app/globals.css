@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -18,12 +17,8 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* Background handled by MyBG component */
+  background: transparent;
 }
 
 @layer utilities {
@@ -61,14 +56,12 @@ body {
   font-family: "outline_pixel-7_solid";
   src: url("/font/outline_pixel-7_solid.ttf") format("truetype");
 }
-// ############################
 
 @font-face {
   font-family: "SPAIDER_";
   src: url("/font/SPAIDER_.TTF") format("truetype");
 }
 
-// ############################
 @font-face {
   font-family: "cd_icons";
   src: url("/icon/CD-IconsPC.ttf") format("truetype");
