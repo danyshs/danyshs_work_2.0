@@ -16,12 +16,8 @@ const DanyshS = ({
   };
 
   const getHighlightClass = (char: string) => {
-    if (
-      (char === "D" && activeChar === "d") ||
-      (char === "_" && activeChar === "-") ||
-      activeChar === char
-    ) {
-      return "text-purple-900 scale-125";
+    if (activeChar === char) {
+      return "text-purple-900 scale-125 duration-75";
     }
     return "";
   };
@@ -40,7 +36,7 @@ const DanyshS = ({
       {text.split("").map((char, index) => (
         <span
           key={index}
-          className={`transition duration-75 ${getHighlightClass(
+          className={`transition duration-300 ${getHighlightClass(
             char
           )} hover:text-purple-900 hover:scale-125`}
           onClick={() => playSound(char)}

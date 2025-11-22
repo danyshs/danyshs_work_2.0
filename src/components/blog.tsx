@@ -37,11 +37,12 @@ const BlogSection: React.FC = () => {
             </div>
             <div className="pl-3">
               *
-              <a href="https://gist.github.com/danyshs/5477a1468e8810b6e703ee03f20400f2#file-rag_neorg_note_processor-md">
+              <a href="https://gist.github.com/danyshs/5477a1468e8810b6e703ee03f20400f2">
                 <span className="text-green-900"> ZettelMancer - </span>
               </a>
               a local LLM powered RAG wiki parser, which can be extended to some day collaboratively build a wiki, or git clone other people's wikis for comparison. It has a chatbot that answers questions using your notes, citing files sourced and the precise lines or quotes within it.
               <br />
+              *
               <a href="https://gist.github.com/danyshs/">
                 <span className="text-green-900"> DiscWhisper - </span>
               </a>

@@ -11,11 +11,15 @@ const TitleText = ({
   return (
     <blockquote className="text-xl md:text-4xl text-white/80 select-none animate-bounce font-outlinepx italic text-center relative z-10 text-slate-900 break-inside-avoid-column max-h-2 md:mb-5">
       {text.split("").map((char, index) => {
-        if (char === "D" || char === "S" || char === "d" || char === "s") {
+        if (["D", "S", "d", "s"].includes(char)) {
+          const isHighlighted =
+            (activeChar === "D" && (char === "D" || char === "d")) ||
+            (activeChar === "S" && (char === "S" || char === "s"));
+
           return (
             <span
               key={index}
-              className={`transition duration-75 ${activeChar === char ? "text-cyan-900" : ""
+              className={`transition duration-300 ${isHighlighted ? "text-cyan-900 duration-75" : ""
                 } hover:text-cyan-900 hover:scale-110`}
               onClick={() => playSound(char)}
             >

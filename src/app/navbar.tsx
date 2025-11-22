@@ -41,6 +41,13 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (activeChar) {
+      const timer = setTimeout(() => setActiveChar(null), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [activeChar]);
+
   return (
     <div className="relative w-full preload-hover-images">
       <div className="absolute inset-0 bg-blue-400/50 h-full"></div>

@@ -15,7 +15,7 @@ export const soundMap: Record<string, Howl> = {
 
 export const charSoundMap: Record<string, string> = {
   D: "D6",
-  d: "D6",
+  // d: "D6",
   a: "F5",
   n: "C6",
   y: "G5",
@@ -32,5 +32,4 @@ export const playSound = (
 ) => {
   setActiveChar(char);
   soundMap[charSoundMap[char]].play();
-  setTimeout(() => setActiveChar(null), 500); // Reset after 500ms
 };
