@@ -33,23 +33,19 @@ const BlogSection: React.FC = () => {
               I make the things I want to see in this world. One day, that&apos;ll be games. Planning on applying to a PhD program once feasible.
               <br/>
               I dream of a world where we use Generative AI in an ethical and sustainable way.
-              <br/>  <span className="text-green-700"> Here&apos;s my contribution towards it so far: </span>
+              <br/>  <span className="text-purple-900"> Here are my contribution towards it so far: </span>
             </div>
             <div className="pl-3">
               *
               <a href="https://gist.github.com/danyshs/5477a1468e8810b6e703ee03f20400f2#file-rag_neorg_note_processor-md">
-                <span className="text-green-900"> ZettelMancer </span>
+                <span className="text-green-900"> ZettelMancer - </span>
               </a>
-              that can either serve as a second brain / memory bank. A chatbot made out of your personal wiki that can be communicated with through any device that can support a browser
-              <br />* a
-              <a href="https://www.github.com/danyshs/powerShell_Utilities">
-                <span className="text-green-900">
-                  {" "}
-                  bunch of powershell scripts{" "}
-                </span>
+              a local LLM powered RAG wiki parser, which can be extended to some day collaboratively build a wiki, or git clone other people's wikis for comparison. It has a chatbot that answers questions using your notes, citing files sourced and the precise lines or quotes within it.
+              <br />
+              <a href="https://gist.github.com/danyshs/">
+                <span className="text-green-900"> DiscWhisper - </span>
               </a>
-              like a tree printer, screen rotator, or more convenient ways to
-              reduce friction in one&apos;s workflow
+              an accessibility-first AI-powered live close caption generator, which colors the close captions based on the voices of those speaking.
               <br />
             </div>
           </div>
