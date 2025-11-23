@@ -10,18 +10,18 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
     "@tailwindcss/typography": "latest",
-    "tailwindcss": "latest",
-    "postcss": "latest",
     "autoprefixer": "latest",
-    "postcss-import": "latest",
     "gray-matter": "latest",
     "howler": "latest",
+    "next": "latest",
     "next-mdx-remote": "latest",
-    "rehype": "latest"
+    "postcss": "latest",
+    "postcss-import": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "rehype": "latest",
+    "tailwindcss": "latest"
   },
   "devDependencies": {
     "@eslint/js": "latest",
