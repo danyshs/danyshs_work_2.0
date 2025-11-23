@@ -3,7 +3,7 @@
 
 import dynamic from "next/dynamic";
 
-const HeightAdjuster = dynamic(() => import("./HeightAdjuster"), {
+const HeightAdjuster = dynamic(() => import("./height-adjuster"), {
   ssr: false,
 });
 

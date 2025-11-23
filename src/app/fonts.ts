@@ -11,12 +11,12 @@ export const computer_pixel_7 = localFont({
 });
 
 export const cube = localFont({
-    src: "../fonts/CUBE.ttf",
+    src: "../fonts/cube.ttf",
     variable: "--font-cube",
 });
 
 export const kingdom_hearts_font = localFont({
-    src: "../fonts/Kingdom_Hearts_Font.ttf",
+    src: "../fonts/kingdom-hearts-font.ttf",
     variable: "--font-kingdom-hearts",
 });
 
@@ -36,7 +36,7 @@ export const spaider = localFont({
 });
 
 export const cd_icons = localFont({
-    src: "../fonts/CD-IconsPC.ttf",
+    src: "../fonts/cd-icons-pc.ttf",
     variable: "--font-cd-icons",
 });
 
@@ -46,7 +46,7 @@ export const minecraft = localFont({
 });
 
 export const pixarrows = localFont({
-    src: "../fonts/PixArrows.ttf",
+    src: "../fonts/pix-arrows.ttf",
     variable: "--font-pixarrows",
 });
 

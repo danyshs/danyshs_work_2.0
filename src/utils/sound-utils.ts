@@ -3,14 +3,14 @@
 import { Howl } from "howler";
 
 export const soundMap: Record<string, Howl> = {
-  G5: new Howl({ src: ["/sounds/G5.mp3"] }),
-  F5: new Howl({ src: ["/sounds/F5.mp3"] }),
-  C6: new Howl({ src: ["/sounds/C6.mp3"] }),
-  D6: new Howl({ src: ["/sounds/D6.mp3"] }),
-  Eb6: new Howl({ src: ["/sounds/Eb6.mp3"] }),
-  F6: new Howl({ src: ["/sounds/F6.mp3"] }),
-  Bb5: new Howl({ src: ["/sounds/Bb5.mp3"] }),
-  G6: new Howl({ src: ["/sounds/G6.mp3"] }),
+  G5: new Howl({ src: ["/sounds/g5.mp3"] }),
+  F5: new Howl({ src: ["/sounds/f5.mp3"] }),
+  C6: new Howl({ src: ["/sounds/c6.mp3"] }),
+  D6: new Howl({ src: ["/sounds/d6.mp3"] }),
+  Eb6: new Howl({ src: ["/sounds/eb6.mp3"] }),
+  F6: new Howl({ src: ["/sounds/f6.mp3"] }),
+  Bb5: new Howl({ src: ["/sounds/bb5.mp3"] }),
+  G6: new Howl({ src: ["/sounds/g6.mp3"] }),
 };
 
 export const charSoundMap: Record<string, string> = {

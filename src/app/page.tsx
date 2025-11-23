@@ -3,10 +3,10 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Navbar from "./navbar";
-import MyBG from "./myBG";
-import { my_sections, Card } from "./projectData";
+import MyBG from "./my-bg";
+import { my_sections, Card } from "./project-data";
 import BlogSection from "../components/blog";
-import HeightAdjusterWrapper from "../components/HeightAdjusterWrapper";
+import HeightAdjusterWrapper from "../components/height-adjuster-wrapper";
 
 export default function Home() {
   const additionalCard: Card = {
@@ -28,7 +28,7 @@ export default function Home() {
         <div className="md:border-8 border-double border-black space-y-2 px-4 py-2 max-w-4xl w-full">
           <BlogSection />
           <div className="text-4xl text-center text-cyan-900 font-outlinepx bg-black w-full p-2">
-            Some Projects
+            Other Projects
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-4">
             {projects_list(filteredProjects)}
@@ -59,9 +59,8 @@ const project_card = (proj: Card, isAdditional = false): React.ReactNode => {
       className={`block ${additionalStyles} project-card`}
     >
       <div
-        className={`group relative transition transform duration-300 ${
-          isAdditional ? "hover:rotate-12" : ""
-        } ring-2 ring-blue-800/50 hover:ring-4 rounded-lg overflow-hidden flex flex-col h-full`}
+        className={`group relative transition transform duration-300 ${isAdditional ? "hover:rotate-12" : ""
+          } ring-2 ring-blue-800/50 hover:ring-4 rounded-lg overflow-hidden flex flex-col h-full`}
       >
         <div
           className={`bg-no-repeat block bg-center min-h-24 w-full ${proj.imgsrc} ${proj.hoverimgsrc}`}

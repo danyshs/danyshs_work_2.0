@@ -1,10 +1,10 @@
 import Navbar from "../navbar";
-import MyBG from "../myBG";
-import { my_sections, Card, Section } from "../projectData";
+import MyBG from "../my-bg";
+import { my_sections, Card, Section } from "../project-data";
 import dynamic from "next/dynamic";
 
 const HeightAdjuster = dynamic(
-  () => import("../../components/HeightAdjuster"),
+  () => import("../../components/height-adjuster"),
 );
 
 export default function AllProjects() {

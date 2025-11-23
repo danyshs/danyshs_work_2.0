@@ -1,5 +1,5 @@
 // src/app/projects/[slug]/page.tsx
-import MyBG from "../../myBG";
+import MyBG from "../../my-bg";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
 import { readFile, access } from "fs/promises";
