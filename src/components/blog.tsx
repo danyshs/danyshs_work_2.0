@@ -5,25 +5,38 @@ import React from "react";
 const BlogSection: React.FC = () => {
   return (
     <>
-      <div dangerouslySetInnerHTML={{
-        __html: `<!--
-Aha! I have found you in my Inspect Element / GitHub Repo
-For you, I have prepared a treat.
-On my website (assuming you don't have extensions hijacking your inputs)
-1. Capitalization matters
-2. Click anywhere on the website before inputting it
-3. Click anywhere on the website before inputting it
-4. Instead of typing the letters, there's an accessibility alternative of clicking on the letters of my name instead! ^^
-5. When characters have no spaces between them (like in the case of _S_), just press them all consecutively in one beat
-
-Code:
-n y a D
-n y a D
-s D S _S_ 
-s D n h
-With a 1 second delay between each note
-This tune inspires you with the determination of a Keyblade Master
--->`}} />
+      <div style={{ display: 'none' }} aria-hidden="true" data-easter-egg="keyblade-master">
+        Aha! I have found you in my Inspect Element / GitHub Repo
+        <br />
+        For you, I have prepared a treat.
+        <br />
+        On my website (assuming you don&apos;t have extensions hijacking your inputs)
+        <br />
+        1. Capitalization matters
+        <br />
+        2. Click anywhere on the website before inputting it
+        <br />
+        3. Click anywhere on the website before inputting it
+        <br />
+        4. Instead of typing the letters, there&apos;s an accessibility alternative of clicking on the letters of my name instead! ^^
+        <br />
+        5. When characters have no spaces between them (like in the case of _S_), just press them all consecutively in one beat
+        <br />
+        <br />
+        Code:
+        <br />
+        n y a D
+        <br />
+        n y a D
+        <br />
+        s D S _S_
+        <br />
+        s D n h
+        <br />
+        With a 1 second delay between each note
+        <br />
+        This tune inspires you with the determination of a Keyblade Master
+      </div>
       <div className="text-4xl text-center text-cyan-900 font-outlinepx bg-black w-full p-2">
         Hi I&apos;m Danysh.
       </div>
