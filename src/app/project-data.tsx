@@ -52,7 +52,7 @@ export const my_sections: Section[] = [
       },
       {
         href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
-        imgsrc: "bg-kh_pic",
+        imgsrc: "bg-discwhisp",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "DiscWhisper",
         altdesc: "A Closed Captioning system that generates color-coded text to differentiate between multiple voices in a chaotic environment",

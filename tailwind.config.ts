@@ -69,6 +69,7 @@ const config: Config = {
       },
       backgroundImage: {
         my_pic: "url('/img/me.webp')",
+        disc_whisp: "url('img/discwhisper.webp')",
         kh_pic: "url('/img/og.webp')",
         surprise: "url('/img/surprise.webp')",
         surprise2: "url('/img/surprise2.webp')",
