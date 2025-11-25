@@ -80,21 +80,6 @@ export const my_sections: Section[] = [
     ],
   },
   {
-    title: "Research",
-    projects: [
-      {
-        href: "https://www.researchgate.net/publication/395541308_A_Traditional_Approach_to_Symbolic_Piano_Continuation",
-        imgsrc: "bg-kh_pic",
-        hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
-        alt: "A Traditional Approach to Symbolic Piano Continuation",
-        altdesc: "AI Research, where we completed a MIDI piano tune with a Generative AI model to demonstrate that a 20M-parameter decoder-only model could achieve comparable performance to a 780M-parameter transformer.",
-        main: true,
-      },
-            // Add more projects here...
-    ],
-  },
-
-  {
     title: "Game Dev",
     projects: [
       {
@@ -114,6 +99,20 @@ export const my_sections: Section[] = [
         main: false,
       },
       // Add more projects here...
+    ],
+  },
+  {
+    title: "Research",
+    projects: [
+      {
+        href: "https://www.researchgate.net/publication/395541308_A_Traditional_Approach_to_Symbolic_Piano_Continuation",
+        imgsrc: "bg-kh_pic",
+        hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
+        alt: "A Traditional Approach to Symbolic Piano Continuation",
+        altdesc: "AI Research, where we completed a MIDI piano tune with a Generative AI model to demonstrate that a 20M-parameter decoder-only model could achieve comparable performance to a 780M-parameter transformer.",
+        main: true,
+      },
+            // Add more projects here...
     ],
   },
   /*{
