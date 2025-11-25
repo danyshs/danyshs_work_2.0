@@ -34,20 +34,26 @@ const BlogSection: React.FC = () => {
               I make the things I want to see in this world. One day, that&apos;ll be games. Planning on applying to a PhD program once feasible.
               <br/>
               I dream of a world where we use Generative AI in an ethical and sustainable way.
-              <br/>  <span className="text-purple-900"> Here are my contributions towards it so far: </span>
+              <br/>  <span className="text-purple-900"> So far, I've made: </span>
             </div>
             <div className="pl-3">
               *
               <a href="https://gist.github.com/danyshs/5477a1468e8810b6e703ee03f20400f2">
                 <span className="text-green-900"> ZettelMancer </span>
               </a>
-               - a local LLM powered RAG personal wiki parser, which can be extended to some day collaboratively build a wiki, or git clone other people's wikis for comparison. It has a chatbot that answers questions using your notes, citing files sourced and the precise lines or quotes within it.
+               - a personal wiki parser, which gives you exact quotes or files cited in response to your questions
               <br />
               *
-              <a href="https://gist.github.com/danyshs/">
+              <a href="https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a">
                 <span className="text-green-900"> DiscWhisper </span>
               </a>
-               - an accessibility-first AI-powered live close caption generator, which colors the close captions based on the voices of those speaking.
+               - A closed caption generator that lets you differentiate between multiple speakers
+              <br />
+              *
+              <a href="https://gist.github.com/danyshs/871bb786c31adfd06fb751627a8258eb">
+                <span className="text-green-900"> NOblivion</span>
+              </a>
+               - A file manager that understands your natural language and helps you create rules, and shows you what your organization *would* look like in a virtual environment
               <br />
             </div>
           </div>
