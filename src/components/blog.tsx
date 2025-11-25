@@ -7,34 +7,19 @@ const BlogSection: React.FC = () => {
     <>
       <div style={{ display: 'none' }} aria-hidden="true" data-easter-egg="keyblade-master">
         Aha! I have found you in my Inspect Element / GitHub Repo
-        <br />
         For you, I have prepared a treat.
-        <br />
         On my website (assuming you don&apos;t have extensions hijacking your inputs)
-        <br />
         1. Capitalization matters
-        <br />
         2. Click anywhere on the website before inputting it
-        <br />
         3. Click anywhere on the website before inputting it
-        <br />
         4. Instead of typing the letters, there&apos;s an accessibility alternative of clicking on the letters of my name instead! ^^
-        <br />
         5. When characters have no spaces between them (like in the case of _S_), just press them all consecutively in one beat
-        <br />
-        <br />
         Code:
-        <br />
         n y a D
-        <br />
         n y a D
-        <br />
         s D S _S_
-        <br />
         s D n h
-        <br />
         With a 1 second delay between each note
-        <br />
         This tune inspires you with the determination of a Keyblade Master
       </div>
       <div className="text-4xl text-center text-cyan-900 font-outlinepx bg-black w-full p-2">
