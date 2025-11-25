@@ -111,7 +111,7 @@ export const my_sections: Section[] = [
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "danyshs_work",
         altdesc: "Recursion?",
-        main: true,
+        main: false,
       },
       // Add more projects here...
     ],
