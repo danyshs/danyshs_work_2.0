@@ -48,7 +48,7 @@ export const my_sections: Section[] = [
         hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
         alt: "ZettelMancer",
         altdesc: "A second brain that you can work on alongside others, share with others, or compare with others.",
-        main: true,
+        main: false,
       },
       {
         href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
@@ -56,7 +56,7 @@ export const my_sections: Section[] = [
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "DiscWhisper",
         altdesc: "A Closed Captioning system that generates color-coded text to differentiate between multiple voices in a chaotic environment",
-        main: true,
+        main: false,
       },
       {
         href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
@@ -64,7 +64,7 @@ export const my_sections: Section[] = [
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "CareGiver",
         altdesc: "DeveloperWeek 2025 Winner for Oracle and PliOps challenges, provides an NL2SQL interface for admin, while providing games, telemetry, and a more private yet knowledgeable chatbot to the elderly in assisted living homes",
-        main: false,
+        main: true,
       },
       {
         href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
@@ -72,7 +72,7 @@ export const my_sections: Section[] = [
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "NOblivion",
         altdesc: "A File manager that can enforce your organization rules, suggest new rules based off of your fuzzy requests, and present a virtual environment so you can see what the end result of the organization would be before you go through with it",
-        main: true,
+        main: false,
       },
 
 
@@ -106,12 +106,12 @@ export const my_sections: Section[] = [
         main: false,
       },
       {
-        href: "./projects",
+        href: "./",
         imgsrc: "bg-danyshs_work",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "danyshs_work",
         altdesc: "Recursion?",
-        main: false,
+        main: true,
       },
       // Add more projects here...
     ],

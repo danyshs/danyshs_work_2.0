@@ -51,7 +51,7 @@ const BlogSection: React.FC = () => {
               <br />
               *
               <a href="https://gist.github.com/danyshs/871bb786c31adfd06fb751627a8258eb">
-                <span className="text-green-900"> NOblivion</span>
+                <span className="text-green-900"> NOblivion [WIP] </span>
               </a>
                - A file manager that understands your natural language and helps you create rules, and shows you what your organization *would* look like in a virtual environment
               <br />
