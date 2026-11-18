@@ -18,6 +18,7 @@ export const my_sections: Section[] = [
   {
     title: "Personal Projects",
     projects: [
+      /* hidden: placeholder text, no public repo
       {
         href: "./projects/expense_tracker_util",
         imgsrc: "bg-expense_tracker bg-black",
@@ -26,7 +27,7 @@ export const my_sections: Section[] = [
         altdesc:
           "Reads the expenses and presents it in a nice way that is very nice to look at and lorem placeholder placeholder text",
         main: false,
-      },
+      }, */
       {
         href: "./projects/gmail_sorting",
         imgsrc: "bg-gmail_sorting bg-black",
@@ -41,31 +42,33 @@ export const my_sections: Section[] = [
   {
     title: "Generative AI",
     projects: [
+      /* hidden: placeholder
       {
         // href: "./projects/try_web_gl",
         href: "https://gist.github.com/danyshs/5477a1468e8810b6e703ee03f20400f2",
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
         alt: "ZettelMancer",
-        altdesc: "A second brain that you can work on alongside others, share with others, or compare with others.",
+        altdesc: "A local chatbot over my personal wiki that cites the exact notes it answers from. Write-up.",
         main: false,
-      },
+      }, */
       {
         href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
         imgsrc: "bg-disc_whisp",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "DiscWhisper",
-        altdesc: "A Closed Captioning system that generates color-coded text to differentiate between multiple voices in a chaotic environment",
+        altdesc: "Live closed captions, color-coded by speaker, for chaotic multi-voice calls. Write-up.",
         main: false,
       },
       {
-        href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
+        href: "https://github.com/A-Ricemusic/Developer-Week-Hackathon-2025-Caregiver",
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "CareGiver",
-        altdesc: "DeveloperWeek 2025 Winner for Oracle and PliOps challenges, provides an NL2SQL interface for admin, while providing games, telemetry, and a more private yet knowledgeable chatbot to the elderly in assisted living homes",
+        altdesc: "DeveloperWeek 2025: 1st place in the Oracle and Pliops challenges. A natural-language-to-SQL admin interface for an assisted living home, plus games, telemetry and a private chatbot for residents. Team project; much of it lives in Oracle APEX, outside the repo.",
         main: true,
       },
+      /* hidden: not built yet
       {
         href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
         imgsrc: "bg-kh_pic",
@@ -73,7 +76,7 @@ export const my_sections: Section[] = [
         alt: "NOblivion",
         altdesc: "A File manager that can enforce your organization rules, suggest new rules based off of your fuzzy requests, and present a virtual environment so you can see what the end result of the organization would be before you go through with it",
         main: false,
-      },
+      }, */
 
 
       // Add more projects here...
@@ -109,8 +112,16 @@ export const my_sections: Section[] = [
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
         alt: "A Traditional Approach to Symbolic Piano Continuation",
-        altdesc: "AI Research, where we completed a MIDI piano tune with a Generative AI model to demonstrate that a 20M-parameter decoder-only model could achieve comparable performance to a 780M-parameter transformer.",
+        altdesc: "MIREX 2025, co-author (EleutherAI SOAR). A 20M-parameter RWKV-7 that continues piano pieces: tied a 39× larger 780M transformer and beat a 60× larger 1.2B one in a double-blind listening test.",
         main: true,
+      },
+      {
+        href: "https://arxiv.org/abs/2311.13494",
+        imgsrc: "bg-kh_pic",
+        hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
+        alt: "A Comparative Analysis of Supportive Navigation on Movie Recommenders",
+        altdesc: "An alternative Netflix-style interface that cuts down on endless scrolling, with a user study (published as Danysh Syed).",
+        main: false,
       },
             // Add more projects here...
     ],
