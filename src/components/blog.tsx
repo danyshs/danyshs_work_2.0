@@ -14,9 +14,9 @@ const WORK_LINKS: WorkLink[] = [
   },
   {
     href: "https://github.com/danyshs/resume",
-    name: "Agent Tooling & Guardrails",
+    name: "AI Agent Engineering & Tooling",
     summary:
-      "eval harness (5.7k loc), session trajectory batch analyzer (3.2k loc), and budget/turn guardrails for AI coding agents",
+      "systems architecture for autonomous coding agents: trajectory batch analysis, deterministic spend/turn guards, custom agent skills, antagonist/protagonist review passes, and Tiger Style contract verification",
   },
   {
     href:

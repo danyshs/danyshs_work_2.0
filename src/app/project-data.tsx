@@ -46,10 +46,10 @@ export const my_sections: Section[] = [
         href: "https://github.com/danyshs/resume",
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
-        alt: "Agent Tooling & Guardrails",
+        alt: "AI Agent Engineering & Tooling",
         altdesc:
-          "Headless eval harness with hidden test grading (5.7k loc, 297 tests), session trajectory batch analyzer (3.2k loc), " +
-          "and deterministic budget/turn guardrails for AI coding agents.",
+          "End-to-end tooling and runtime harness for AI coding agents: batch trajectory analyzer, deterministic spend/turn guards, " +
+          "custom Claude Code skills, antagonist/protagonist review protocols, and Tiger Style contract verification.",
         main: true,
       },
       {
