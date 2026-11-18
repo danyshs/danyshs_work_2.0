@@ -1,0 +1,62 @@
+---
+title: "Carty: Turning a Phone Walk-Through into a Map, Fully On-Device"
+description: "Why I stopped asking an on-device LLM to draw maps, what it took to run Gemma on a phone, and the floor-height bug that collapsed every map into one blob."
+date: "2026-11-18"
+tags: ["android", "computer-vision", "on-device-ai", "flutter", "cpp"]
+type: "blog"
+---
+
+Carty takes a video of you walking around a place and turns it into a top-down map, the kind you'd put on a table for a Dungeons & Dragons session. Two rules shape everything: it all runs on the phone, with no server, and the AI never draws the map.
+
+The second rule wasn't the plan. It's what the first real test taught me.
+
+### The plan, and the 41 walls
+
+The original design fed a video frame to an on-device language model (Gemma 4 E2B) and asked it to describe the room's geometry. On a real frame it returned 41 identical walls laid out in a neat grid that had nothing to do with the room. It also ran past its output limit, so the answer was cut off mid-way, and it took about 50 seconds per frame.
+
+So I flipped it: classical computer vision builds the geometry, and the model may only correct low-confidence regions, as changes you can review. Math is good at precise, repeatable geometry. A language model is good at judgment calls, like "is that a doorway or a gap?", and bad at coordinates.
+
+### Pose: where is the phone?
+
+A map needs to know that two frames are two corners of the same room. That's the camera's pose: its position and orientation. ARCore's visual-inertial odometry gives it from the camera plus the motion sensors, offline.
+
+Getting it running headless on a OnePlus 8 Pro took one non-obvious fix. A plain `GL_TEXTURE_2D` left the camera dark; ARCore's SurfaceTexture path needs `GL_TEXTURE_EXTERNAL_OES`. After that, the probe reported 35 of 60 frames tracking.
+
+### Running Gemma on the phone
+
+The 50 seconds per frame came partly from the design: the model was reloaded on every call, through a separate process. I wrapped LiteRT-LM's C API in-process behind the app's C++ bridge, so the model loads once per session.
+
+Then it answered with nothing. Reading the engine's source showed why: Gemma expects its chat-template turn markers around the prompt. Without them it decides it's done straight away. With them added, the full chain (Dart calling C++ calling LiteRT-LM calling Gemma) ran on the phone:
+
+- about 6 s to load, once per session
+- about 30 s per answer
+- about 2.44 GiB resident
+- mild thermals, no throttling
+
+That's slow, which is fine for a model that only edits now and then, not one that draws every frame.
+
+### Building the map
+
+Two pieces of geometry do the work.
+
+First, orthorectification: a frame of the floor filmed at an angle is a stretched trapezoid, and this warps it into a straight-down view, so each pixel maps to a fixed spot on the ground.
+
+Second, fusion. A world-frame grid of voxel columns keeps an int8 log-odds score per cell, which works like a confidence vote. Each straightened frame is stamped onto the grid at its pose, so frame 1 and frame 500 land in consistent places and the floor plan builds up like layers of tracing paper. With depth, it also does free-space carving with an Amanatides–Woo ray walk. One bad frame can't ruin the map.
+
+I wrote the fusion code test-first and ran it under sanitizers.
+
+### The blue smear
+
+The first live walk didn't produce a map. Everything collapsed into a blob near one point.
+
+I had assumed ARCore measures height from the floor. It doesn't: zero height is wherever the camera was when tracking started, usually chest-high. Every ray projected "down to the floor" was aimed at the wrong plane, and they all piled up at the origin. The fix was to detect the floor plane and measure every height from it.
+
+### Smaller lessons
+
+- **Disk churn.** As a non-git Nix flake, every `nix develop` copied the whole working tree, SDK mirrors included, into the store, about 6.4 GB each time. Sixteen copies, about 39 GB, had piled up before I noticed. Making it a git flake cut each copy to about 0.4 MB.
+- **Room segmentation.** Finding the outside of the map was re-flooding in O(n⁴). Making it O(n²) let the default 1024 grid finish on the phone.
+- **Replay.** A real walk recorded 644 keyframes, 621 with good tracking. Saving the pose beside the video means I can replay that walk on a laptop and get the same map every time.
+
+### Next
+
+Walls, rooms and doors from the grid; the model correcting the unclear spots; and rendering it as a map a person would recognise. I'll add to this post as that work lands.

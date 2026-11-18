@@ -32,7 +32,7 @@ To stop hunting in the dark, I built a deterministic Vulkan probe and benchmark 
 
 ### Controller USB Pass-Through
 
-Android's standard gamepad API abstracts away controller descriptors, dropping support for advanced features and causing latency. To fix this, I designed a direct USB controller pass-through:
+Android's standard gamepad API abstracts away controller descriptors, dropping support for advanced features. To fix this, I designed a direct USB controller pass-through:
 - Shipped a custom `winebus.sys` driver pair with a Unix socket bridge.
 - Implemented USB descriptor parsing, pad reader, and frame codec directly.
 - Added backpressure handling: when socket buffers fill up, stale frames are dropped to keep the controller connected rather than crashing Wine.
