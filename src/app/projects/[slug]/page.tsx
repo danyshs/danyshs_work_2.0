@@ -27,9 +27,10 @@ async function readPostFile(slug: string) {
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const markdown = await readPostFile(params.slug);
+  const { slug } = await params;  // Next 15+ passes params as a Promise; sync access is gone in 16
+  const markdown = await readPostFile(slug);
   if (!markdown) {
     notFound();
   }
@@ -85,7 +86,7 @@ export default async function PostPage({
       </MyBG>
     );
   } catch (err) {
-    console.error(`Error compiling MDX for slug: ${params.slug}`, err);
+    console.error(`Error compiling MDX for slug: ${slug}`, err);
     return notFound();
   }
 }
