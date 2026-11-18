@@ -1,10 +1,11 @@
-// next.config.mjs
-export default {
+/** @type {import("next").NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   turbopack: {},
-  // Enable polling file watcher for Turbopack HMR
-  // This fixes HMR not working in Windows/Docker/WSL environments
+  // polling watcher: native file events don't reach HMR under Windows/Docker/WSL
   watchOptions: {
     pollIntervalMs: 300,
   },
 };
+
+export default nextConfig;

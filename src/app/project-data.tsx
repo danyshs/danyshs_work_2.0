@@ -1,6 +1,4 @@
-// ./src/app/projectData.ts
-
-export interface Card {
+export interface ProjectCard {
   href: string;
   imgsrc: string;
   hoverimgsrc: string;
@@ -11,7 +9,7 @@ export interface Card {
 
 export interface Section {
   title: string;
-  projects: Card[];
+  projects: ProjectCard[];
 }
 
 export const my_sections: Section[] = [
@@ -25,7 +23,8 @@ export const my_sections: Section[] = [
         hoverimgsrc: "group-hover:bg-black/50 duration-500 bg-contain",
         alt: "expense_tracker_util",
         altdesc:
-          "Reads the expenses and presents it in a nice way that is very nice to look at and lorem placeholder placeholder text",
+          "Reads the expenses and presents it in a nice way that is very nice to look at " +
+          "and lorem placeholder placeholder text",
         main: false,
       }, */
       {
@@ -34,7 +33,8 @@ export const my_sections: Section[] = [
         hoverimgsrc: "group-hover:bg-black/50 duration-500 bg-contain",
         alt: "gmail_sorting",
         altdesc:
-          "Scans through every unique email address, allows you to tag them and categorize them into folders",
+          "Scans through every unique email address, allows you to tag them " +
+          "and categorize them into folders",
         main: false,
       },
     ],
@@ -49,7 +49,9 @@ export const my_sections: Section[] = [
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
         alt: "ZettelMancer",
-        altdesc: "A local chatbot over my personal wiki that cites the exact notes it answers from. Write-up.",
+        altdesc:
+          "A local chatbot over my personal wiki that cites the exact notes it answers from. " +
+          "Write-up.",
         main: false,
       }, */
       {
@@ -57,7 +59,8 @@ export const my_sections: Section[] = [
         imgsrc: "bg-disc_whisp",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "DiscWhisper",
-        altdesc: "Live closed captions, color-coded by speaker, for chaotic multi-voice calls. Write-up.",
+        altdesc:
+          "Live closed captions, color-coded by speaker, for chaotic multi-voice calls. Write-up.",
         main: false,
       },
       {
@@ -65,7 +68,11 @@ export const my_sections: Section[] = [
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "CareGiver",
-        altdesc: "DeveloperWeek 2025: 1st place in the Oracle and Pliops challenges. A natural-language-to-SQL admin interface for an assisted living home, plus games, telemetry and a private chatbot for residents. Team project; much of it lives in Oracle APEX, outside the repo.",
+        altdesc:
+          "DeveloperWeek 2025: 1st place in the Oracle and Pliops challenges. " +
+          "A natural-language-to-SQL admin interface for an assisted living home, plus games, " +
+          "telemetry and a private chatbot for residents. " +
+          "Team project; much of it lives in Oracle APEX, outside the repo.",
         main: true,
       },
       /* hidden: not built yet
@@ -74,17 +81,18 @@ export const my_sections: Section[] = [
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "NOblivion",
-        altdesc: "A File manager that can enforce your organization rules, suggest new rules based off of your fuzzy requests, and present a virtual environment so you can see what the end result of the organization would be before you go through with it",
+        altdesc:
+          "A File manager that can enforce your organization rules, suggest new rules based " +
+          "off of your fuzzy requests, and present a virtual environment so you can see what " +
+          "the end result of the organization would be before you go through with it",
         main: false,
       }, */
-
-
-      // Add more projects here...
     ],
   },
   {
     title: "Game Dev",
     projects: [
+      /* hidden: placeholder, page doesn't exist
       {
         href: "./projects/try_web_gl",
         imgsrc: "bg-kh_pic",
@@ -92,7 +100,7 @@ export const my_sections: Section[] = [
         alt: "try_web_gl",
         altdesc: "placeholder",
         main: false,
-      },
+      }, */
       {
         href: "./",
         imgsrc: "bg-danyshs_work",
@@ -101,18 +109,22 @@ export const my_sections: Section[] = [
         altdesc: "Recursion?",
         main: false,
       },
-      // Add more projects here...
     ],
   },
   {
     title: "Research",
     projects: [
       {
-        href: "https://www.researchgate.net/publication/395541308_A_Traditional_Approach_to_Symbolic_Piano_Continuation",
+        href:
+          "https://www.researchgate.net/publication/" +
+          "395541308_A_Traditional_Approach_to_Symbolic_Piano_Continuation",
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
         alt: "A Traditional Approach to Symbolic Piano Continuation",
-        altdesc: "MIREX 2025, co-author (EleutherAI SOAR). A 20M-parameter RWKV-7 that continues piano pieces: tied a 39× larger 780M transformer and beat a 60× larger 1.2B one in a double-blind listening test.",
+        altdesc:
+          "MIREX 2025, co-author (EleutherAI SOAR). A 20M-parameter RWKV-7 that continues " +
+          "piano pieces: tied a 39× larger 780M transformer and beat a 60× larger 1.2B one " +
+          "in a double-blind listening test.",
         main: true,
       },
       {
@@ -120,10 +132,11 @@ export const my_sections: Section[] = [
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
         alt: "A Comparative Analysis of Supportive Navigation on Movie Recommenders",
-        altdesc: "An alternative Netflix-style interface that cuts down on endless scrolling, with a user study (published as Danysh Syed).",
+        altdesc:
+          "An alternative Netflix-style interface that cuts down on endless scrolling, " +
+          "with a user study (published as Danysh Syed).",
         main: false,
       },
-            // Add more projects here...
     ],
   },
   /*{
@@ -143,7 +156,6 @@ export const my_sections: Section[] = [
         alt: "also example",
         main: false,
       },
-      // Add more projects here...
     ],
   },*/
 ];

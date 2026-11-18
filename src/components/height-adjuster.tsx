@@ -1,14 +1,14 @@
-// ../components/HeightAdjuster.tsx
 "use client";
 
-import dynamic from "next/dynamic";
+import { useEffect } from "react";
 
-import React, { useEffect } from "react";
+const DESKTOP_WIDTH_PX_MIN = 768; // Tailwind's md breakpoint
 
-const HeightAdjuster: React.FC = () => {
+// evens out the two cards in each row of the two-column grid
+export default function HeightAdjuster() {
   useEffect(() => {
     const adjustHeights = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= DESKTOP_WIDTH_PX_MIN) {
         const cards = document.querySelectorAll<HTMLElement>(".project-card");
         for (let i = 0; i < cards.length; i += 2) {
           const card1 = cards[i];
@@ -20,7 +20,6 @@ const HeightAdjuster: React.FC = () => {
           }
         }
       } else {
-        // Reset height for small screens
         const cards = document.querySelectorAll<HTMLElement>(".project-card");
         cards.forEach((card) => {
           card.style.height = "auto";
@@ -36,6 +35,4 @@ const HeightAdjuster: React.FC = () => {
   }, []);
 
   return null;
-};
-
-export default HeightAdjuster;
+}

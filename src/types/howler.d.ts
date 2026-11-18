@@ -28,7 +28,7 @@ declare module "howler" {
     preload?: boolean | "metadata" | "auto" | "none";
     sprite?: { [name: string]: [number, number] };
     onload?: () => void;
-    onloaderror?: (id: number, error: any) => void;
+    onloaderror?: (id: number, error: unknown) => void;
     onplay?: (id: number) => void;
     onend?: (id: number) => void;
     onpause?: (id: number) => void;

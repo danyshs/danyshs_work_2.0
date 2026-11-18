@@ -1,19 +1,48 @@
-// ./src/app/BlogSection.tsx
+interface WorkLink {
+  href: string;
+  name: string;
+  summary: string;
+}
 
-import React from "react";
+// keep in step with the visible cards in project-data.tsx
+const WORK_LINKS: WorkLink[] = [
+  {
+    href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
+    name: "DiscWhisper",
+    summary: "live closed captions, color-coded by speaker, for chaotic multi-voice calls",
+  },
+  {
+    href: "https://github.com/A-Ricemusic/Developer-Week-Hackathon-2025-Caregiver",
+    name: "CareGiver",
+    summary:
+      "a natural-language-to-SQL admin interface for an assisted living home; " +
+      "1st place in the Oracle and Pliops challenges at DeveloperWeek 2025 (team project)",
+  },
+  {
+    href:
+      "https://www.researchgate.net/publication/" +
+      "395541308_A_Traditional_Approach_to_Symbolic_Piano_Continuation",
+    name: "A Traditional Approach to Symbolic Piano Continuation",
+    summary:
+      "our MIREX 2025 entry, a 20M-parameter RWKV-7 that tied a 39× larger " +
+      "transformer in a double-blind listening test (co-author)",
+  },
+];
 
-const BlogSection: React.FC = () => {
+export default function BlogSection() {
   return (
     <>
-      <div style={{ display: 'none' }} aria-hidden="true" data-easter-egg="keyblade-master">
+      <div style={{ display: "none" }} aria-hidden="true" data-easter-egg="keyblade-master">
         Aha! I have found you in my Inspect Element / GitHub Repo
         For you, I have prepared a treat.
         On my website (assuming you don&apos;t have extensions hijacking your inputs)
         1. Capitalization matters
         2. Click anywhere on the website before inputting it
         3. Click anywhere on the website before inputting it
-        4. Instead of typing the letters, there&apos;s an accessibility alternative of clicking on the letters of my name instead! ^^
-        5. When characters have no spaces between them (like in the case of _S_), just press them all consecutively in one beat
+        4. Instead of typing the letters, there&apos;s an accessibility alternative of clicking
+        on the letters of my name instead! ^^
+        5. When characters have no spaces between them (like in the case of _S_), just press
+        them all consecutively in one beat
         Code:
         n y a D
         n y a D
@@ -26,34 +55,31 @@ const BlogSection: React.FC = () => {
         Hi I&apos;m Danysh.
       </div>
       <div className="w-full flex justify-center">
-        <div className="bg-gradient-to-b from-black/25 to-black/75 w-full max-w-4xl px-6 md:px-16 break-words">
+        <div
+          className={[
+            "bg-gradient-to-b from-black/25 to-black/75",
+            "w-full max-w-4xl px-6 md:px-16 break-words",
+          ].join(" ")}
+        >
           <br />
           <div className="text-3xl md:text-4xl text-white font-comp_pixel">
             <div className="text-white font-comp_pixel">
-              I make the things I want to see in this world. One day, that&apos;ll be games. Planning on applying to a PhD program once feasible.
+              I make the things I want to see in this world. One day, that&apos;ll be games.
               <br />
               I dream of a world where we use Generative AI in an ethical and sustainable way.
-              <br />  <span className="text-purple-900"> So far, I've made: </span>
+              <br />
+              <span className="text-purple-900"> So far, I&apos;ve worked on: </span>
             </div>
             <div className="pl-3">
-              *
-              <a href="https://gist.github.com/danyshs/5477a1468e8810b6e703ee03f20400f2">
-                <span className="text-green-900"> ZettelMancer </span>
-              </a>
-              - a personal wiki parser, which gives you exact quotes or files cited in response to your questions
-              <br />
-              *
-              <a href="https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a">
-                <span className="text-green-900"> DiscWhisper </span>
-              </a>
-              - A closed caption generator that lets you differentiate between multiple speakers
-              <br />
-              *
-              <a href="https://gist.github.com/danyshs/871bb786c31adfd06fb751627a8258eb">
-                <span className="text-green-900"> NOblivion [WIP] </span>
-              </a>
-              - A file manager that understands your natural language and helps you create rules, and shows you what your organization *would* look like in a virtual environment
-              <br />
+              {WORK_LINKS.map((work) => (
+                <div key={work.href}>
+                  *{" "}
+                  <a href={work.href}>
+                    <span className="text-green-900">{work.name}</span>
+                  </a>{" "}
+                  - {work.summary}
+                </div>
+              ))}
             </div>
           </div>
           <br />
@@ -61,6 +87,4 @@ const BlogSection: React.FC = () => {
       </div>
     </>
   );
-};
-
-export default BlogSection;
+}

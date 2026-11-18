@@ -9,7 +9,13 @@ const TitleText = ({
 }) => {
   const text = "AI Researcher\nAvid Videogame Enthusiast";
   return (
-    <blockquote className="text-xl md:text-4xl text-white/80 select-none animate-bounce font-outlinepx italic text-center relative z-10 text-slate-900 break-inside-avoid-column max-h-2 md:mb-5">
+    <blockquote
+      className={[
+        "text-xl md:text-4xl text-white/80 select-none animate-bounce",
+        "font-outlinepx italic text-center relative z-10 text-slate-900",
+        "break-inside-avoid-column max-h-2 md:mb-5",
+      ].join(" ")}
+    >
       {text.split("").map((char, index) => {
         if (["D", "S", "d", "s"].includes(char)) {
           const isHighlighted =

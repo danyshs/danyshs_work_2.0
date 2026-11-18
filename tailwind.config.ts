@@ -1,20 +1,18 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   content: [
-    // ✅ Added 'posts' and 'util' so Tailwind scans them too
     "./posts/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/utils/**/*.{js,ts,jsx,tsx,mdx}",
 
-    // ✅ Existing src paths
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      // ✅ colors moved INSIDE extend. 
-      // Now you keep default colors AND get your custom ones.
+      // inside extend, so Tailwind's default palette stays available
       colors: {
         transparent: "transparent",
         current: "currentColor",
@@ -92,7 +90,8 @@ const config: Config = {
         expense_tracker: "url('/img/expense_tracker.webp')",
         danyshs_work: "url('/img/danyshs_work.webp')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
         fourbnt: ["var(--font-fourbnt)"],
@@ -110,6 +109,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 };
 export default config;

@@ -1,13 +1,11 @@
-// ./src/app/contactsData.tsx
-
-export interface Card {
+export interface ContactCard {
   href: string;
   imgsrc: string;
   hoverimgsrc: string;
   alt?: string;
 }
 
-export const my_contacts: Card[] = [
+export const my_contacts: ContactCard[] = [
   {
     href: "https://github.com/danyshs",
     imgsrc: "bg-lol_github",

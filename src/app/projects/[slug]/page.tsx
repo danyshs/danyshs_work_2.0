@@ -1,92 +1,90 @@
-// src/app/projects/[slug]/page.tsx
-import MyBG from "../../my-bg";
+import type { ReactElement } from "react";
 import { compileMDX } from "next-mdx-remote/rsc";
-import path from "path";
-import { readFile, access } from "fs/promises";
 import { notFound } from "next/navigation";
+import MyBG from "../../my-bg";
+import {
+  listPostSlugs,
+  parseFrontmatter,
+  readPostSource,
+  type PostFrontmatter,
+} from "../../../lib/posts";
 
-const POSTS_FOLDER = path.join(process.cwd(), "posts");
+// every post is rendered at build time, so a broken post fails the build, not a visitor
+export const dynamicParams = false;
 
-async function readPostFile(slug: string) {
-  const filePath = path.resolve(path.join(POSTS_FOLDER, `${slug}.mdx`));
-  try {
-    await access(filePath);
-  } catch (err) {
-    console.error(`File not found: ${filePath}`, err);
-    return null;
-  }
-  try {
-    const fileContent = await readFile(filePath, { encoding: "utf8" });
-    return fileContent;
-  } catch (err) {
-    console.error(`Error reading file: ${filePath}`, err);
-    return null;
-  }
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  const slugs = await listPostSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;  // Next 15+ passes params as a Promise; sync access is gone in 16
-  const markdown = await readPostFile(slug);
-  if (!markdown) {
-    notFound();
-  }
-  try {
-    const { content, frontmatter } = await compileMDX<{
-      title: string;
-      description: string;
-      repository: string;
-    }>({
-      source: markdown,
-      options: { parseFrontmatter: true },
-    });
+interface CompiledPost {
+  content: ReactElement;
+  frontmatter: PostFrontmatter;
+}
 
-    return (
-      <MyBG>
-        <div className="bg-gray-900 min-h-screen text-white">
-          <div className="bg-black py-8">
-            <div className="container mx-auto px-4 text-center">
-              <h1 className="text-5xl font-cube">{frontmatter.title}</h1>
-              <p className="text-xl mt-4">{frontmatter.description}</p>
-              {frontmatter.repository && (
-                <div className="flex justify-center items-center mt-6">
-                  <a
-                    href="./"
-                    className="text-3xl md:text-6xl font-pixarrows text-cyan-900 cursor-pointer mr"
-                  >
-                    a
-                  </a>
-                  <a
-                    href={`https://www.github.com/${frontmatter.repository}`}
-                    className="bg-white text-black font-bold py-2 px-4 rounded inline-block"
-                  >
-                    GitHub →
-                  </a>
-                </div>
-              )}
-            </div>
-          </div>
-          <article className="prose prose-lg bg-white text-gray-800 p-8 max-w-3xl mx-auto mt-16">
-            {content}
-            {frontmatter.repository && (
-              <div className="mt-8 text-center">
+async function compilePost(slug: string): Promise<CompiledPost | null> {
+  const source = await readPostSource(slug);
+  if (source === null) return null;
+  const compiled = await compileMDX({ source, options: { parseFrontmatter: true } });
+  const frontmatter = parseFrontmatter(compiled.frontmatter);
+  if (frontmatter === null) {
+    throw new Error(`posts/${slug}.mdx: frontmatter needs a string title and description`);
+  }
+  return { content: compiled.content, frontmatter };
+}
+
+function GitHubButton({ repository, className }: { repository: string; className: string }) {
+  return (
+    <a
+      href={`https://www.github.com/${repository}`}
+      className={`font-bold py-2 px-4 rounded inline-block ${className}`}
+    >
+      GitHub →
+    </a>
+  );
+}
+
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params; // a Promise since Next 15
+  const post = await compilePost(slug);
+  if (post === null) notFound();
+  const { content, frontmatter } = post;
+
+  return (
+    <MyBG>
+      <div className="bg-gray-900 min-h-screen text-white">
+        <div className="bg-black py-8">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-5xl font-cube">{frontmatter.title}</h1>
+            <p className="text-xl mt-4">{frontmatter.description}</p>
+            {frontmatter.repository !== undefined && (
+              <div className="flex justify-center items-center mt-6">
                 <a
-                  href={`https://www.github.com/${frontmatter.repository}`}
-                  className="bg-gray-900 text-white font-bold py-2 px-4 rounded inline-block"
+                  href="./"
+                  className="text-3xl md:text-6xl font-pixarrows text-cyan-900 cursor-pointer"
                 >
-                  GitHub →
+                  a
                 </a>
+                <GitHubButton
+                  repository={frontmatter.repository}
+                  className="bg-white text-black"
+                />
               </div>
             )}
-          </article>
+          </div>
         </div>
-      </MyBG>
-    );
-  } catch (err) {
-    console.error(`Error compiling MDX for slug: ${slug}`, err);
-    return notFound();
-  }
+        <article className="prose prose-lg bg-white text-gray-800 p-8 max-w-3xl mx-auto mt-16">
+          {content}
+          {frontmatter.repository !== undefined && (
+            <div className="mt-8 text-center">
+              <GitHubButton
+                repository={frontmatter.repository}
+                className="bg-gray-900 text-white"
+              />
+            </div>
+          )}
+        </article>
+      </div>
+    </MyBG>
+  );
 }
