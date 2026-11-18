@@ -22,7 +22,10 @@ const howlForNote = new Map<Note, Howl>();
 function howl(note: Note): Howl {
   const cached = howlForNote.get(note);
   if (cached !== undefined) return cached;
-  const created = new Howl({ src: [`/sounds/${note.toLowerCase()}.mp3`] });
+  // public/sounds files are cased (Bb5.mp3); lowercase is only a fallback
+  const created = new Howl({
+    src: [`/sounds/${note}.mp3`, `/sounds/${note.toLowerCase()}.mp3`],
+  });
   howlForNote.set(note, created);
   if (howlForNote.size > NOTES.length) throw new Error("invariant: more sounds than notes");
   return created;

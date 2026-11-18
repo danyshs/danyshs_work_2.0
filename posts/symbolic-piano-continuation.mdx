@@ -1,0 +1,24 @@
+---
+title: "A Traditional Approach to Symbolic Music: 20M RWKV vs 1.2B Transformers"
+description: "Our MIREX 2025 submission with EleutherAI SOAR: proving parameter efficiency in symbolic piano continuation under double-blind human evaluation."
+date: "2025-11-08"
+tags: ["machine-learning", "rwkv", "mirex2025", "music"]
+type: "blog"
+---
+
+Can a lightweight linear-recurrent model match the expressive quality of massive generative transformers in symbolic music continuation?
+
+In our MIREX 2025 paper (*A Traditional Approach to Symbolic Piano Continuation*, co-authored with EleutherAI SOAR), we explored whether architectural efficiency and careful tokenization could beat brute parameter scale.
+
+### The Model: 20M RWKV-7
+
+Rather than scaling up to billions of parameters, our model used a compact 20M-parameter RWKV-7 architecture trained specifically on MIDI token sequences.
+
+The key results under double-blind human listening tests:
+- Tied a **39× larger 780M transformer** in subjective continuation quality.
+- Outperformed a **60× larger 1.2B parameter model**.
+- Maintained strict linear time complexity and constant memory state during generation, enabling low-latency real-time inference on edge devices.
+
+### Takeaways on Efficiency
+
+The results reinforced a core principle in my work: before reaching for massive compute or giant model sizes, verify whether architectural symmetry, data representation, and clean evaluation methodologies can achieve equal or superior results at a fraction of the cost.

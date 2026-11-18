@@ -16,17 +16,6 @@ export const my_sections: Section[] = [
   {
     title: "Personal Projects",
     projects: [
-      /* hidden: placeholder text, no public repo
-      {
-        href: "./projects/expense_tracker_util",
-        imgsrc: "bg-expense_tracker bg-black",
-        hoverimgsrc: "group-hover:bg-black/50 duration-500 bg-contain",
-        alt: "expense_tracker_util",
-        altdesc:
-          "Reads the expenses and presents it in a nice way that is very nice to look at " +
-          "and lorem placeholder placeholder text",
-        main: false,
-      }, */
       {
         href: "./projects/gmail_sorting",
         imgsrc: "bg-gmail_sorting bg-black",
@@ -126,23 +115,4 @@ export const my_sections: Section[] = [
       },
     ],
   },
-  /*{
-    title: "Videos",
-    projects: [
-      {
-        href: "./projects/example",
-        imgsrc: "bg-my_pic",
-        hoverimgsrc: "group-hover:bg-blue-700 duration-500 bg-contain",
-        alt: "example",
-        main: false,
-      },
-      {
-        href: "./projects/example",
-        imgsrc: "bg-my_pic",
-        hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
-        alt: "also example",
-        main: false,
-      },
-    ],
-  },*/
 ];

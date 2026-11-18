@@ -70,31 +70,31 @@ export default function BlogSection() {
         <div
           className={[
             "bg-gradient-to-b from-black/25 to-black/75",
-            "w-full max-w-4xl px-6 md:px-16 break-words",
+            "w-full max-w-4xl px-6 md:px-16 py-6 break-words",
           ].join(" ")}
         >
-          <br />
-          <div className="text-3xl md:text-4xl text-white font-comp_pixel">
-            <div className="text-white font-comp_pixel">
+          <div className="text-3xl md:text-4xl text-white font-comp_pixel space-y-3">
+            <p>
               I make the things I want to see in this world. One day, that&apos;ll be games.
-              <br />
+            </p>
+            <p>
               I dream of a world where we use Generative AI in an ethical and sustainable way.
-              <br />
-              <span className="text-purple-900"> So far, I&apos;ve worked on: </span>
-            </div>
-            <div className="pl-3">
+            </p>
+            <p>
+              <span className="text-purple-900">So far, I&apos;ve worked on:</span>
+            </p>
+            <div className="pl-3 space-y-1">
               {WORK_LINKS.map((work) => (
                 <div key={work.href}>
                   *{" "}
                   <a href={work.href}>
-                    <span className="text-green-900">{work.name}</span>
+                    <span className="text-green-900 hover:underline">{work.name}</span>
                   </a>{" "}
                   - {work.summary}
                 </div>
               ))}
             </div>
           </div>
-          <br />
         </div>
       </div>
     </>

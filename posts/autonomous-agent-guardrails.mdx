@@ -1,0 +1,32 @@
+---
+title: "Deterministic Guardrails for Coding Agents: Surviving the 440-Credit Loop"
+description: "Why written prompt rules fail under pressure, and how hard pre-tool hooks, turn ceilings, and trajectory analysis keep agent development bounded and honest."
+date: "2026-11-15"
+tags: ["agents", "systems", "evals", "guardrails"]
+type: "blog"
+---
+
+When developing with autonomous coding agents, prompt rules alone do not survive long sessions. Under pressure or ambiguous feedback, models will rationalize loop conditions, retry identical commands, and burn through budgets.
+
+After an incident where an agent loop spent 440 credits because two simulated reviewers refused to agree on convergence, I treated agent control as a systems engineering problem rather than a prompting problem.
+
+### 1. Hard Pre-Tool Execution Guards (`guard.py`)
+
+Instead of asking the model to respect a budget, deterministic pre-tool execution hooks enforce invariant limits:
+- **Model ceilings:** Prevent spawning unbounded reasoning models when a lightweight model suffices.
+- **Strict budget gates:** Enforce typed budget parameters that trip and reject execution immediately once a turn or spend cap is reached.
+- **Fail-closed design:** If the guard crashes or encounters an unexpected state, it refuses to dispatch tools rather than failing open. Every guard is tested by intentionally triggering the trip condition.
+
+### 2. Session Trajectory Batch Analyzer (`trajectory`)
+
+To understand where agent time and tokens actually go, I built a batch trajectory analyzer that parses raw session logs into a normalized, versioned step-event schema:
+- Turns, tool dispatches, argument hashes, and dispatch groups.
+- Free text is omitted from the normalized schema to ensure privacy and fast deterministic processing.
+- Detectors flag repeat loops, error streaks, shell-syntax anomalies, and user correction patterns over time.
+
+### 3. Tiger Style Discipline & Antagonist Passes
+
+Before building any agent tool, feature, or script:
+- Every design goes through an argued-for and argued-against pass.
+- Invariants are checked with explicit bounds, single-source-of-state rules, and mutation testing gates (e.g. 16/16 mutants killed on sync utilities).
+- This keeps personal development fast, clean, and reliable.

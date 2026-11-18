@@ -1,0 +1,38 @@
+---
+title: "Debugging Vulkan & PowerVR on Android: Running Windows Games on Pixel"
+description: "How Mesa Zink, Vortek, and Wine interact on a mobile PowerVR GPU, and why hunting bugs across 10 builds required building a hardware probe suite."
+date: "2026-11-17"
+tags: ["systems", "vulkan", "winlator", "powervr", "reverse-engineering"]
+type: "blog"
+---
+
+Getting Windows games like *Mewgenics* and *Slay the Spire 2* running on an Android phone's PowerVR GPU is an exercise in peeling back layered abstractions until you find the exact contract violation.
+
+The graphics chain looks straightforward on paper:
+
+```
+Game (Direct3D / GL) 
+  → Mesa Zink (OpenGL on Vulkan) 
+    → SPIR-V 
+      → Vortek (Winlator Vulkan Forwarding) 
+        → PowerVR Driver
+```
+
+In practice, a black screen or dropped frame can come from any link in that chain. During early triage, three distinct bugs stacked on a single symptom:
+
+1. **Swapchain Recreate vs. SURFACE_LOST:** Vortek treated window dimension mismatches during container resizing as `VK_ERROR_SURFACE_LOST`, prompting Godot to abandon rendering entirely. Handling the resize inline via swapchain recreate restored the presentation pipeline.
+2. **Missing Sampled Image Usage:** The window textures lacked `GPU_SAMPLED_IMAGE` usage flags, rendering them black when sampled as quads.
+3. **Pipeline Cache Ring Overflow:** Vortek's pipeline cache reply exceeded client ring bounds, silently killing the game process after 10 minutes of play.
+
+### The 14-Minute Feedback Loop & Why Probes Mattered
+
+Running tests required pushing builds to a physical Pixel 11 Pro XL because the bug was specific to how PowerVR hardware interprets vertex inputs. Running 10 hunt builds took about 14 minutes per round trip.
+
+To stop hunting in the dark, I built a deterministic Vulkan probe and benchmark suite. Instead of guessing whether a buffer holds data or whether the window system dropped an alpha flag, each probe isolates one layer boundary against a control and reports verifiable numbers with units.
+
+### Controller USB Pass-Through
+
+Android's standard gamepad API abstracts away controller descriptors, dropping support for advanced features and causing latency. To fix this, I designed a direct USB controller pass-through:
+- Shipped a custom `winebus.sys` driver pair with a Unix socket bridge.
+- Implemented USB descriptor parsing, pad reader, and frame codec directly.
+- Added backpressure handling: when socket buffers fill up, stale frames are dropped to keep the controller connected rather than crashing Wine.
