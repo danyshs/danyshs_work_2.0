@@ -7,16 +7,16 @@ interface WorkLink {
 // keep in step with the visible cards in project-data.tsx
 const WORK_LINKS: WorkLink[] = [
   {
-    href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
-    name: "DiscWhisper",
-    summary: "live closed captions, color-coded by speaker, for chaotic multi-voice calls",
+    href: "https://github.com/danyshs/winlator-app",
+    name: "Winlator & Mesa (Pixel Graphics)",
+    summary:
+      "low-level graphics and Vulkan forwarding fixes to run Windows games on a Pixel's PowerVR GPU (Mesa Zink, Vortek, Wine)",
   },
   {
-    href: "https://github.com/A-Ricemusic/Developer-Week-Hackathon-2025-Caregiver",
-    name: "CareGiver",
+    href: "https://github.com/danyshs/resume",
+    name: "Agent Tooling & Guardrails",
     summary:
-      "a natural-language-to-SQL admin interface for an assisted living home; " +
-      "1st place in the Oracle and Pliops challenges at DeveloperWeek 2025 (team project)",
+      "eval harness (5.7k loc), session trajectory batch analyzer (3.2k loc), and budget/turn guardrails for AI coding agents",
   },
   {
     href:
@@ -26,6 +26,18 @@ const WORK_LINKS: WorkLink[] = [
     summary:
       "our MIREX 2025 entry, a 20M-parameter RWKV-7 that tied a 39× larger " +
       "transformer in a double-blind listening test (co-author)",
+  },
+  {
+    href: "https://github.com/A-Ricemusic/Developer-Week-Hackathon-2025-Caregiver",
+    name: "CareGiver",
+    summary:
+      "a natural-language-to-SQL admin interface for an assisted living home; " +
+      "1st place in the Oracle and Pliops challenges at DeveloperWeek 2025 (team project)",
+  },
+  {
+    href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
+    name: "DiscWhisper",
+    summary: "live closed captions, color-coded by speaker, for chaotic multi-voice calls",
   },
 ];
 

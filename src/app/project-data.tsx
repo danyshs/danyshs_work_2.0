@@ -42,18 +42,16 @@ export const my_sections: Section[] = [
   {
     title: "Generative AI",
     projects: [
-      /* hidden: placeholder
       {
-        // href: "./projects/try_web_gl",
-        href: "https://gist.github.com/danyshs/5477a1468e8810b6e703ee03f20400f2",
+        href: "https://github.com/danyshs/resume",
         imgsrc: "bg-kh_pic",
-        hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
-        alt: "ZettelMancer",
+        hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
+        alt: "Agent Tooling & Guardrails",
         altdesc:
-          "A local chatbot over my personal wiki that cites the exact notes it answers from. " +
-          "Write-up.",
-        main: false,
-      }, */
+          "Headless eval harness with hidden test grading (5.7k loc, 297 tests), session trajectory batch analyzer (3.2k loc), " +
+          "and deterministic budget/turn guardrails for AI coding agents.",
+        main: true,
+      },
       {
         href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
         imgsrc: "bg-disc_whisp",
@@ -75,32 +73,21 @@ export const my_sections: Section[] = [
           "Team project; much of it lives in Oracle APEX, outside the repo.",
         main: true,
       },
-      /* hidden: not built yet
-      {
-        href: "https://gist.github.com/danyshs/c60a04e034cd8a4fecc406d3bfb77c9a",
-        imgsrc: "bg-kh_pic",
-        hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
-        alt: "NOblivion",
-        altdesc:
-          "A File manager that can enforce your organization rules, suggest new rules based " +
-          "off of your fuzzy requests, and present a virtual environment so you can see what " +
-          "the end result of the organization would be before you go through with it",
-        main: false,
-      }, */
     ],
   },
   {
     title: "Game Dev",
     projects: [
-      /* hidden: placeholder, page doesn't exist
       {
-        href: "./projects/try_web_gl",
+        href: "https://github.com/danyshs/winlator-app",
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-blue-800 duration-500 bg-contain",
-        alt: "try_web_gl",
-        altdesc: "placeholder",
-        main: false,
-      }, */
+        alt: "Winlator & Mesa (Pixel Graphics)",
+        altdesc:
+          "Running Windows PC games on a Pixel's PowerVR GPU. Mesa 22.2.5 Zink patches, Vortek Vulkan forwarding fixes, " +
+          "explorer.exe reverse engineering, and custom USB controller pass-through.",
+        main: true,
+      },
       {
         href: "./",
         imgsrc: "bg-danyshs_work",
