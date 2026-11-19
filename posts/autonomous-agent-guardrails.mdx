@@ -30,3 +30,7 @@ Before building any agent tool, feature, or script:
 - Every design goes through an argued-for and argued-against pass.
 - Invariants are checked with explicit bounds, single-source-of-state rules, and mutation testing gates (e.g. 16/16 mutants killed on sync utilities).
 - This keeps personal development fast, clean, and reliable.
+
+### Try it
+
+The guards, rules, review agents and Tiger Style skills are public as Claude Code plugins: [github.com/danyshs/agent-kit](https://github.com/danyshs/agent-kit). Two lines install the starter set. The public guard differs in one way: if the turn-cap check crashes, it lets ordinary tool calls through, so a bug can't lock up someone else's session. Sub-agent launches still fail closed. The trajectory analyzer isn't packaged yet.
