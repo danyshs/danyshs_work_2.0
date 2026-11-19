@@ -32,7 +32,7 @@ export const my_sections: Section[] = [
     title: "Generative AI",
     projects: [
       {
-        href: "https://github.com/danyshs/resume",
+        href: "./projects/autonomous-agent-guardrails",
         imgsrc: "bg-kh_pic",
         hoverimgsrc: "group-hover:bg-cyan-900 duration-500 bg-contain",
         alt: "AI Agent Engineering & Tooling",

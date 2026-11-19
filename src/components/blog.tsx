@@ -13,7 +13,7 @@ const WORK_LINKS: WorkLink[] = [
       "low-level graphics and Vulkan forwarding fixes to run Windows games on a Pixel's PowerVR GPU (Mesa Zink, Vortek, Wine)",
   },
   {
-    href: "https://github.com/danyshs/resume",
+    href: "./projects/autonomous-agent-guardrails",
     name: "AI Agent Engineering & Tooling",
     summary:
       "systems architecture for autonomous coding agents: trajectory batch analysis, deterministic spend/turn guards, custom agent skills, antagonist/protagonist review passes, and Tiger Style contract verification",
