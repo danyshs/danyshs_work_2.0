@@ -27,6 +27,28 @@ body {
   }
 }
 
+/* blog calendar: today's retro cursor, and the glow on days with a Ramble */
+@keyframes cal-cursor-blink {
+  to {
+    border-bottom-color: transparent;
+  }
+}
+
+.cal-cursor {
+  border-bottom: 2px solid currentColor;
+  animation: cal-cursor-blink 1s steps(2, jump-none) infinite;
+}
+
+.ramble-glow {
+  text-shadow: 0 0 4px #fff, 0 0 10px #22bbff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cal-cursor {
+    animation: none;
+  }
+}
+
 /* loads the contact icons' hover images up front so the first hover doesn't flash */
 .preload-hover-images::before {
   content: "";

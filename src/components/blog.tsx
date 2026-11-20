@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface WorkLink {
   href: string;
   name: string;
@@ -94,6 +96,13 @@ export default function BlogSection() {
                 </div>
               ))}
             </div>
+            <p>
+              I write about all this on my{" "}
+              <Link href="/blog">
+                <span className="text-green-900 hover:underline">blog</span>
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </div>
