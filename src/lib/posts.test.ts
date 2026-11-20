@@ -1,8 +1,6 @@
 import { expect, test } from "bun:test";
 import {
-  extractFrontmatter,
   isValidSlug,
-  listAllPosts,
   listPostSlugs,
   parseFrontmatter,
   readPostSource,
@@ -32,38 +30,6 @@ test("listing finds the real posts", async () => {
   const slugs = await listPostSlugs();
   expect(slugs).toContain("gmail_sorting");
   expect(slugs.every(isValidSlug)).toBe(true);
-});
-
-test("extractFrontmatter parses keys and arrays", () => {
-  const source = `---
-title: "My Post"
-description: "A cool description"
-date: "2026-11-17"
-tags: ["systems", "vulkan", "wine"]
-type: "blog"
----
-
-Body content here
-`;
-  const raw = extractFrontmatter(source);
-  expect(raw).not.toBeNull();
-  expect(raw?.title).toBe("My Post");
-  expect(raw?.description).toBe("A cool description");
-  expect(raw?.date).toBe("2026-11-17");
-  expect(raw?.tags).toEqual(["systems", "vulkan", "wine"]);
-  expect(raw?.type).toBe("blog");
-});
-
-test("listAllPosts returns sorted metadata", async () => {
-  const posts = await listAllPosts();
-  expect(posts.length).toBeGreaterThan(0);
-  // newest first
-  const dates = posts.map((p) => p.date);
-  expect(dates).toEqual([...dates].sort().reverse());
-  const blogs = await listAllPosts("blog");
-  expect(blogs.length).toBeGreaterThan(0);
-  expect(blogs.every((p) => p.type === "blog")).toBe(true);
-  expect(blogs.length).toBeLessThan(posts.length);
 });
 
 // goal: frontmatter is decoded once; wrong types are rejected rather than passed on

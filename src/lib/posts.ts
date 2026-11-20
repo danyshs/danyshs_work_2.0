@@ -12,17 +12,6 @@ export interface PostFrontmatter {
   date?: string;
   repository?: string;
   tags?: string[];
-  type?: "blog" | "project";
-}
-
-export interface PostMetadata {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  repository?: string;
-  tags: string[];
-  type: "blog" | "project";
 }
 
 // slugs come from the URL: plain names only, so "../" can never leave posts/
@@ -91,74 +80,9 @@ export function parseFrontmatter(value: unknown): PostFrontmatter | null {
     }
   }
 
-  if ("type" in value) {
-    if (value.type === "blog" || value.type === "project") {
-      result.type = value.type;
-    }
-  }
-
   if ("tags" in value && Array.isArray(value.tags)) {
     result.tags = value.tags.filter((t): t is string => typeof t === "string");
   }
 
   return result;
-}
-
-export function extractFrontmatter(source: string): Record<string, unknown> | null {
-  const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!match || !match[1]) return null;
-  const result: Record<string, unknown> = {};
-  for (const rawLine of match[1].split("\n")) {
-    const line = rawLine.trim();
-    if (!line || line.startsWith("#")) continue;
-    const colonIndex = line.indexOf(":");
-    if (colonIndex === -1) continue;
-    const key = line.slice(0, colonIndex).trim();
-    let val = line.slice(colonIndex + 1).trim();
-    if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1);
-    if (val.startsWith("'") && val.endsWith("'")) val = val.slice(1, -1);
-    if (val.startsWith("[") && val.endsWith("]")) {
-      result[key] = val
-        .slice(1, -1)
-        .split(",")
-        .map((s) => s.trim().replace(/^["']|["']$/g, ""))
-        .filter(Boolean);
-    } else {
-      result[key] = val;
-    }
-  }
-  return result;
-}
-
-export async function getPostMetadata(slug: string): Promise<PostMetadata | null> {
-  const source = await readPostSource(slug);
-  if (source === null) return null;
-  const raw = extractFrontmatter(source);
-  if (raw === null) return null;
-  const parsed = parseFrontmatter(raw);
-  if (parsed === null) return null;
-  return {
-    slug,
-    title: parsed.title,
-    description: parsed.description,
-    date: parsed.date ?? "2024-01-01",
-    repository: parsed.repository,
-    tags: parsed.tags ?? [],
-    type: parsed.type ?? (parsed.repository ? "project" : "blog"),
-  };
-}
-
-export async function listAllPosts(filterType?: "blog" | "project"): Promise<PostMetadata[]> {
-  const slugs = await listPostSlugs();
-  const posts: PostMetadata[] = [];
-  for (const slug of slugs) {
-    const meta = await getPostMetadata(slug);
-    if (meta !== null) {
-      if (!filterType || meta.type === filterType) {
-        posts.push(meta);
-      }
-    }
-  }
-  // Sort newest first
-  return posts.sort((a, b) => b.date.localeCompare(a.date));
 }
