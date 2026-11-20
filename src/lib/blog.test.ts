@@ -4,7 +4,6 @@ import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promis
 import { tmpdir } from "node:os";
 import {
   assertCountWithin,
-  DAY_PAGE_COUNT_MAX,
   dayPageDates,
   excerptOf,
   EXCERPT_LENGTH_MAX,
@@ -119,13 +118,12 @@ test("pageCount rounds up and never drops below 1", () => {
   expect([0, 1, 10, 11, 20, 21].map(pageCount)).toEqual([1, 1, 1, 2, 2, 3]);
 });
 
-test("dayPageDates runs a year past the build day, and is capped", () => {
+test("dayPageDates runs to the day after the build day, and is capped", () => {
   const dates = dayPageDates("2026-11-19", "2026-11-19");
-  expect(dates.length).toBe(367);
+  expect(dates.length).toBe(2);
   expect(dates[0]).toBe("2026-11-19");
-  expect(dates[366]).toBe("2027-11-20");
+  expect(dates[1]).toBe("2026-11-20");
   expect(() => dayPageDates("2000-01-01", "2026-11-19")).toThrow(/DAY_PAGE_COUNT_MAX/);
-  expect(DAY_PAGE_COUNT_MAX).toBeGreaterThan(367);
 });
 
 test("assertCountWithin passes at the limit and names the constant past it", () => {

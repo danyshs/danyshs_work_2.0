@@ -15,7 +15,7 @@ export const ENTRIES_PER_PAGE = 10;
 export const EXCERPT_LENGTH_MAX = 200; // code points
 export const TAG_COUNT_MAX = 100;
 export const TAG_LENGTH_MAX = 32;
-export const DAYS_AHEAD = 366; // today keeps working for a year without a deploy
+export const DAYS_AHEAD = 1; // daily rebuild keeps today built; +1 covers time zones ahead of UTC
 export const DAY_PAGE_COUNT_MAX = 5000;
 // export refuses an empty generateStaticParams; the page 404s and Next marks it noindex
 export const PLACEHOLDER_PARAM = "_empty";
