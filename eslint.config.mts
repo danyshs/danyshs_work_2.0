@@ -8,7 +8,7 @@ export default defineConfig([
   ...nextTs,
   {
     // type-aware rules: no unchecked any/casts/!, no dropped promises
-    files: ["src/**/*.{ts,tsx}", "tailwind.config.ts"],
+    files: ["src/**/*.{ts,tsx}", "workers/**/*.ts", "tailwind.config.ts"],
     languageOptions: {
       parserOptions: { projectService: true, tsconfigRootDir: import.meta.dirname },
     },

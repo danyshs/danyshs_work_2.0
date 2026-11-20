@@ -1,0 +1,7 @@
+name = "danyshs-work-daily-rebuild"
+main = "src/index.ts"
+compatibility_date = "2026-11-20"
+workers_dev = false # cron only, no public URL
+
+[triggers]
+crons = ["5 0 * * *", "5 12 * * *"] # just after the UTC date changes, plus a same-day retry
