@@ -17,6 +17,8 @@ export const TAG_COUNT_MAX = 100;
 export const TAG_LENGTH_MAX = 32;
 export const DAYS_AHEAD = 366; // today keeps working for a year without a deploy
 export const DAY_PAGE_COUNT_MAX = 5000;
+// export refuses an empty generateStaticParams; the page 404s and Next marks it noindex
+export const PLACEHOLDER_PARAM = "_empty";
 const FUTURE_DAYS_ALLOWED = 1; // writing from a time zone ahead of UTC
 const TAG_PATTERN = /^[a-z0-9-]+$/;
 const FRONTMATTER_PATTERN = /^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/;
@@ -233,6 +235,8 @@ async function loadRambles(postsDir: string): Promise<RambleMeta[]> {
   const rambles: RambleMeta[] = [];
   for (const name of names) {
     if (!isValidSlug(name)) throw new Error(`posts/rambles/${name}.mdx: name is not a valid slug`);
+    // slugs allow "_", so this one name would collide with the empty-list placeholder
+    if (name === PLACEHOLDER_PARAM) throw new Error(`posts/rambles/${name}.mdx: name is reserved`);
     const file = await readOrThrow("rambles", name, postsDir);
     try {
       decodeKeys(file.frontmatter, RAMBLE_KEYS);

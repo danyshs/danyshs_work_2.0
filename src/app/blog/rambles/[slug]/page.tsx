@@ -3,14 +3,15 @@ import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import BlogShell from "../../../../components/blog-shell";
 import { HEADING, PANEL, TagPills } from "../../../../components/blog-bits";
-import { loadBlogIndex, readBlogPost } from "../../../../lib/blog";
+import { loadBlogIndex, PLACEHOLDER_PARAM, readBlogPost } from "../../../../lib/blog";
 import { formatDate } from "../../../../lib/dates";
 
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const index = await loadBlogIndex();
-  return index.rambles.map((ramble) => ({ slug: ramble.slug }));
+  const params = index.rambles.map((ramble) => ({ slug: ramble.slug }));
+  return params.length > 0 ? params : [{ slug: PLACEHOLDER_PARAM }];
 }
 
 export async function generateMetadata({

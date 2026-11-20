@@ -63,6 +63,7 @@ test("bad posts fail the build", async () => {
     [{ "days/2026-11-01.mdx": "---\ntags: rain\n---\nx" }, /tags must be a list/],
     [{ ...GOOD_DAY, "rambles/r.mdx": "---\ntitle: R\n---\nx" }, /rambles\/r\.mdx: .*needs date/],
     [{ ...GOOD_DAY, "rambles/r.mdx": "---\ndate: 2026-11-01\n---\nx" }, /needs a title/],
+    [{ ...GOOD_DAY, "rambles/_empty.mdx": "---\ntitle: R\ndate: 2026-11-01\n---\nx" }, /_empty\.mdx: name is reserved/],
     [{ "days/2026-11-01.mdx": "---\ntags: [Bad Tag]\n---\nx" }, /bad tag "Bad Tag"/],
     [{ "days/2026-11-21.mdx": "x" }, /dated 2026-11-21, after 2026-11-20/],
   ];

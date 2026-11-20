@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogFeedPage from "../../../../components/blog-feed-page";
-import { loadBlogIndex, pageCount } from "../../../../lib/blog";
+import { loadBlogIndex, pageCount, PLACEHOLDER_PARAM } from "../../../../lib/blog";
 
 // page 1 is /blog; only 2..pageCount are built, anything else is a 404
 export const dynamicParams = false;
@@ -9,7 +9,8 @@ export const dynamicParams = false;
 export async function generateStaticParams(): Promise<{ n: string }[]> {
   const index = await loadBlogIndex();
   const total = pageCount(index.entries.length);
-  return Array.from({ length: total - 1 }, (_, offset) => ({ n: String(offset + 2) }));
+  const params = Array.from({ length: total - 1 }, (_, offset) => ({ n: String(offset + 2) }));
+  return params.length > 0 ? params : [{ n: PLACEHOLDER_PARAM }];
 }
 
 export async function generateMetadata({

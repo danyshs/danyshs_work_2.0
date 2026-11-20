@@ -4,13 +4,14 @@ import BlogShell from "../../../../components/blog-shell";
 import { HEADING } from "../../../../components/blog-bits";
 import BlogFeedItem from "../../../../components/blog-feed-item";
 import { RambleGrid } from "../../../../components/ramble-card";
-import { loadBlogIndex } from "../../../../lib/blog";
+import { loadBlogIndex, PLACEHOLDER_PARAM } from "../../../../lib/blog";
 
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<{ tag: string }[]> {
   const index = await loadBlogIndex();
-  return index.tags.map((tag) => ({ tag }));
+  const params = index.tags.map((tag) => ({ tag }));
+  return params.length > 0 ? params : [{ tag: PLACEHOLDER_PARAM }];
 }
 
 export async function generateMetadata({
